@@ -1,26 +1,99 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
 <head>
-<title>Test</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Hallway Library</title>
 
 <style>
-body{
+
+*{
     margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#0f0f0f;
+    color:white;
+    font-family:Georgia, serif;
+    line-height:1.6;
 }
 
 header{
     height:100vh;
-    background-image:url("library-cover.png");
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.55),
+        rgba(0,0,0,0.80)
+    ),
+    url("library-cover.png.png");
+
     background-size:cover;
     background-position:center;
+    background-repeat:no-repeat;
 
     display:flex;
+    flex-direction:column;
     justify-content:center;
     align-items:center;
 
-    color:white;
-    font-size:3rem;
+    text-align:center;
+    padding:20px;
 }
+
+h1{
+    font-size:4rem;
+    letter-spacing:4px;
+    margin-bottom:15px;
+}
+
+.subtitle{
+    color:#d4c08a;
+    font-size:1.2rem;
+    margin-bottom:25px;
+}
+
+.quote{
+    font-style:italic;
+    max-width:700px;
+    color:#dddddd;
+}
+
+section{
+    max-width:1000px;
+    margin:auto;
+    padding:60px 25px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+    color:#d4c08a;
+}
+
+.card{
+    background:#1a1a1a;
+    padding:25px;
+    margin-bottom:25px;
+    border-left:4px solid #d4c08a;
+    border-radius:4px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+footer{
+    text-align:center;
+    padding:40px;
+    color:#888;
+    border-top:1px solid #222;
+}
+
 </style>
 
 </head>
@@ -28,8 +101,51 @@ header{
 <body>
 
 <header>
-THE HALLWAY LIBRARY
+
+<h1>THE HALLWAY LIBRARY</h1>
+
+<p class="subtitle">
+Stories and Poems by Allan Kantun
+</p>
+
+<p class="quote">
+"Every book holds a story. Every door hides another."
+</p>
+
 </header>
+
+<section>
+
+<h2 class="section-title">Featured Works</h2>
+
+<div class="card">
+<h3>The Hallway</h3>
+<p>
+A mysterious corridor filled with doors, memories, and things that should have remained forgotten.
+</p>
+</div>
+
+<div class="card">
+<h3>The Wolf and the Young Woman</h3>
+<p>
+A tale still being written, waiting for its place on the shelves of the library.
+</p>
+</div>
+
+<div class="card">
+<h3>Coming Soon</h3>
+<p>
+More stories, poems and forgotten memories will be added to the collection.
+</p>
+</div>
+
+</section>
+
+<footer>
+
+Written by A.K.
+
+</footer>
 
 </body>
 </html>
