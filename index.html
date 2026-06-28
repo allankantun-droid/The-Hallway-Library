@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,12 +15,43 @@
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     background:#0f0f0f;
     color:white;
     font-family:Georgia, serif;
     line-height:1.6;
 }
+
+/* NAVIGATION */
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:rgba(0,0,0,0.9);
+    padding:18px;
+    text-align:center;
+    z-index:1000;
+    backdrop-filter:blur(4px);
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 20px;
+    transition:0.3s;
+    font-size:1rem;
+}
+
+nav a:hover{
+    color:#d4c08a;
+}
+
+/* HEADER */
 
 header{
     height:100vh;
@@ -63,16 +94,19 @@ h1{
     color:#dddddd;
 }
 
+/* SECTIONS */
+
 section{
     max-width:1000px;
     margin:auto;
-    padding:60px 25px;
+    padding:80px 25px;
 }
 
 .section-title{
     text-align:center;
     margin-bottom:40px;
     color:#d4c08a;
+    font-size:2rem;
 }
 
 .card{
@@ -85,7 +119,10 @@ section{
 
 .card h3{
     margin-bottom:10px;
+    color:#ffffff;
 }
+
+/* FOOTER */
 
 footer{
     text-align:center;
@@ -99,6 +136,13 @@ footer{
 </head>
 
 <body>
+
+<nav>
+<a href="#">Home</a>
+<a href="#library">Library</a>
+<a href="#about">About A.K.</a>
+<a href="#contact">Contact</a>
+</nav>
 
 <header>
 
@@ -114,7 +158,7 @@ Stories and Poems by Allan Kantun
 
 </header>
 
-<section>
+<section id="library">
 
 <h2 class="section-title">Featured Works</h2>
 
@@ -141,11 +185,62 @@ More stories, poems and forgotten memories will be added to the collection.
 
 </section>
 
+<section id="about">
+
+<h2 class="section-title">About A.K.</h2>
+
+<div class="card">
+
+<p>
+Welcome to The Hallway Library.
+</p>
+
+<br>
+
+<p>
+My name is Allan Kantun, though most stories here are signed simply as A.K.
+</p>
+
+<br>
+
+<p>
+I write about forgotten places, strange corridors, memories that refuse to fade, and the quiet spaces between reality and dreams.
+</p>
+
+<br>
+
+<p>
+This library is a collection of stories, poems and fragments gathered along the way.
+</p>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2 class="section-title">Contact</h2>
+
+<div class="card">
+
+<p>
+A guestbook and reader comments section will be added in the future.
+</p>
+
+<p>
+Until then, thank you for visiting The Hallway Library.
+</p>
+
+</div>
+
+</section>
+
 <footer>
 
-Written by A.K.
+Written by Allan Kantun — A.K.
 
 </footer>
 
 </body>
+
 </html>
