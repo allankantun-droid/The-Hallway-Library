@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
 
@@ -16,11 +16,15 @@ padding:0;
 box-sizing:border-box;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
-background:#0f0f0f;
-color:white;
+background:#111;
+color:#f5f5f5;
 font-family:Georgia, serif;
-line-height:1.8;
+line-height:1.9;
 }
 
 .hero{
@@ -45,52 +49,41 @@ align-items:center;
 
 text-align:center;
 padding:20px;
-
 }
 
 .hero h1{
-
 font-size:5rem;
 letter-spacing:4px;
 margin-bottom:20px;
-
-}
-
-.hero p{
-
-max-width:700px;
-
 }
 
 .author{
-
 color:#d4c08a;
 font-size:1.2rem;
-margin-bottom:20px;
+margin-bottom:15px;
+}
 
+.genre{
+color:#cccccc;
+margin-bottom:25px;
 }
 
 .quote{
-
 font-style:italic;
-color:#dddddd;
-
+max-width:700px;
 }
 
 .content{
-
-max-width:900px;
+max-width:950px;
 margin:auto;
 padding:80px 25px;
-
 }
 
 .section-title{
-
-color:#d4c08a;
-margin-bottom:25px;
 text-align:center;
-
+color:#d4c08a;
+margin-bottom:30px;
+font-size:2rem;
 }
 
 .synopsis{
@@ -102,44 +95,52 @@ margin-bottom:50px;
 
 }
 
-.buttons{
-
+.language-buttons{
 text-align:center;
 margin-bottom:50px;
-
 }
 
-.buttons a{
+.language-buttons a{
 
 display:inline-block;
-
 margin:10px;
-
 padding:12px 25px;
 
 background:#d4c08a;
-
 color:black;
 
 text-decoration:none;
-
 font-weight:bold;
 
 border-radius:4px;
 
 }
 
-.buttons a:hover{
+.language-buttons a:hover{
+opacity:.85;
+}
 
-opacity:0.8;
+.story{
+
+background:#181818;
+padding:40px;
+border-radius:6px;
+margin-bottom:60px;
 
 }
 
-.story-placeholder{
+.story h2{
 
-background:#1a1a1a;
-padding:35px;
 text-align:center;
+margin-bottom:25px;
+color:#d4c08a;
+
+}
+
+.story p{
+
+max-width:800px;
+margin:auto;
 
 }
 
@@ -161,8 +162,8 @@ footer{
 
 text-align:center;
 padding:40px;
+color:#777;
 border-top:1px solid #222;
-color:#888;
 
 }
 
@@ -177,23 +178,15 @@ color:#888;
 <h1>EL PASILLO 020</h1>
 
 <p class="author">
-
 by A.K.
-
 </p>
 
-<p>
-
+<p class="genre">
 Psychological Mystery • Horror • Drama
-
 </p>
-
-<br>
 
 <p class="quote">
-
 "Hay recuerdos que nunca aprenden a despedirse."
-
 </p>
 
 </section>
@@ -201,9 +194,7 @@ Psychological Mystery • Horror • Drama
 <section class="content">
 
 <h2 class="section-title">
-
-Sinopsis
-
+Synopsis
 </h2>
 
 <div class="synopsis">
@@ -224,19 +215,11 @@ El número 020.
 
 Del otro lado, música.
 
-<br>
-
 Voces.
-
-<br>
 
 Risas.
 
-<br>
-
 Piden ayuda.
-
-<br>
 
 Pero nadie responde.
 
@@ -244,23 +227,15 @@ Pero nadie responde.
 
 Cada vez que sales, el pasillo cambia.
 
-<br>
-
 Los espejos te observan.
 
-<br>
-
 Las sombras te siguen.
-
-<br>
 
 Algo antiguo camina detrás de ti.
 
 <br><br>
 
 Pero cuando finalmente cruces la puerta 020...
-
-<br><br>
 
 descubrirás que nunca estuviste buscando una salida.
 
@@ -276,27 +251,37 @@ Y hay recuerdos que nunca aprenden a despedirse.
 
 </div>
 
-<div class="buttons">
+<div class="language-buttons">
 
-<a href="#espanol">Leer en Español</a>
+<a href="#espanol">Español</a>
 
-<a href="#english">Read in English</a>
+<a href="#english">English</a>
 
 </div>
 
-<div class="story-placeholder">
+<div class="story" id="espanol">
 
 <h2>
-
-Historia próximamente
-
+Versión en Español
 </h2>
-
-<br>
 
 <p>
 
-Aquí aparecerá la versión completa de El Pasillo 020 en Español e Inglés.
+Próximamente se añadirá aquí la versión completa de la novela.
+
+</p>
+
+</div>
+
+<div class="story" id="english">
+
+<h2>
+English Version
+</h2>
+
+<p>
+
+The complete English version of the story will be added here soon.
 
 </p>
 
@@ -306,7 +291,7 @@ Aquí aparecerá la versión completa de El Pasillo 020 en Español e Inglés.
 
 <a href="index.html">
 
-← Volver a The Hallway Library
+← Return to The Hallway Library
 
 </a>
 
