@@ -100,6 +100,37 @@ opacity:.45;
 .back{text-align:center;margin:55px 0;}
 footer{text-align:center;padding:40px;color:#888;border-top:1px solid #222;}
 @media(max-width:700px){nav a{margin:0 7px;font-size:.9rem}.book-page{padding:42px 24px;min-height:560px}.reader-top{display:block;text-align:center}}
+
+.memories{
+max-width:980px;
+margin:90px auto;
+padding:55px 28px;
+background:rgba(18,18,18,.82);
+border:1px solid rgba(212,192,138,.28);
+border-radius:12px;
+box-shadow:0 0 35px rgba(0,0,0,.35);
+text-align:center;
+}
+
+.memories h2{
+color:#d4c08a;
+font-size:2rem;
+margin-bottom:24px;
+}
+
+.memory-intro{
+max-width:720px;
+margin:0 auto 22px;
+color:#e6dcc3;
+font-style:italic;
+line-height:1.8;
+}
+
+.giscus-box{
+margin-top:38px;
+text-align:left;
+}
+
 </style>
 </head>
 <body>
@@ -143,18 +174,38 @@ footer{text-align:center;padding:40px;color:#888;border-top:1px solid #222;}
 </div>
 </div>
 </section>
-<section id="comments" class="comments">
-<h2 class="section-title">Comentarios</h2>
-<p>La sección de comentarios estará lista cuando activemos Giscus. Activa Discussions en GitHub y luego pega aquí el script generado por giscus.app para habilitar comentarios reales.</p>
-<!-- GISCUS READY:
-Cuando actives Discussions y generes tu script en https://giscus.app,
-pega aquí el <script> completo.
-Configuración recomendada:
-repo: allankantun-droid/The-Hallway-Library
-mapping: pathname
-category: General
-theme: dark
--->
+<section id="comments" class="comments memories">
+<h2>🕯 Memories Left Behind</h2>
+
+<p class="memory-intro">
+Every story eventually reaches its final page.
+<br>
+But every reader leaves something behind.
+</p>
+
+<p class="memory-intro">
+If these halls made you feel something...
+<br>
+you are welcome to leave a memory.
+</p>
+
+<div class="giscus-box">
+<script src="https://giscus.app/client.js"
+        data-repo="allankantun-droid/The-Hallway-Library"
+        data-repo-id="R_kgDOTG4ZnA"
+        data-category="General"
+        data-category-id="DIC_kwDOTG4ZnM4DAOEq"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="es"
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
 </section>
 <div class="back"><a class="btn secondary" href="index.html">← Volver a The Hallway Library</a></div>
 <footer>© 2026 Allan Kantun — The Hallway Library</footer>
