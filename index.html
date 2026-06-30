@@ -1,285 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>The Hallway Library</title>
-
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    background:#0f0f0f;
-    color:white;
-    font-family:Georgia, serif;
-    line-height:1.6;
-}
-
-/* NAVIGATION */
-
-nav{
-    position:fixed;
-    top:0;
-    width:100%;
-    background:rgba(0,0,0,0.9);
-    padding:18px;
-    text-align:center;
-    z-index:1000;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    margin:0 20px;
-    transition:0.3s;
-    font-size:1rem;
-}
-
-nav a:hover{
-    color:#d4c08a;
-}
-
-/* HEADER */
-
-header{
-    height:100vh;
-
-    background:
-    linear-gradient(
-        rgba(0,0,0,0.55),
-        rgba(0,0,0,0.80)
-    ),
-    url("library-cover.png.png");
-
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-
-    text-align:center;
-    padding:20px;
-}
-
-h1{
-    font-size:4rem;
-    letter-spacing:4px;
-    margin-bottom:15px;
-}
-
-.subtitle{
-    color:#d4c08a;
-    font-size:1.2rem;
-    margin-bottom:25px;
-}
-
-.quote{
-    font-style:italic;
-    max-width:700px;
-    color:#dddddd;
-}
-
-/* SECTIONS */
-
-section{
-    max-width:1000px;
-    margin:auto;
-    padding:80px 25px;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:40px;
-    color:#d4c08a;
-    font-size:2rem;
-}
-
-.card{
-    background:#1a1a1a;
-    padding:25px;
-    margin-bottom:25px;
-    border-left:4px solid #d4c08a;
-    border-radius:4px;
-    transition:0.3s;
-}
-
-.card:hover{
-    transform:translateY(-3px);
-}
-
-.card h3{
-    margin-bottom:10px;
-}
-
-.card a{
-    color:white;
-    text-decoration:none;
-}
-
-.card a:hover{
-    color:#d4c08a;
-}
-
-/* FOOTER */
-
-footer{
-    text-align:center;
-    padding:40px;
-    color:#888;
-    border-top:1px solid #222;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#0f0f0f;color:white;font-family:Georgia,serif;line-height:1.6;}
+nav{position:fixed;top:0;width:100%;background:rgba(0,0,0,0.88);padding:18px;text-align:center;z-index:1000;backdrop-filter:blur(8px);border-bottom:1px solid rgba(212,192,138,.22);}
+nav a{color:white;text-decoration:none;margin:0 18px;transition:.3s;font-size:1rem;font-weight:bold;}
+nav a:hover{color:#d4c08a;}
+header{height:100vh;background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.82)),url("library-cover.png.png");background-size:cover;background-position:center;background-repeat:no-repeat;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;}
+h1{font-size:clamp(2.8rem,7vw,5rem);letter-spacing:4px;margin-bottom:15px;}
+.subtitle{color:#d4c08a;font-size:1.2rem;margin-bottom:25px;}
+.quote{font-style:italic;max-width:700px;color:#dddddd;}
+section{max-width:1080px;margin:auto;padding:85px 25px;}
+.section-title{text-align:center;margin-bottom:40px;color:#d4c08a;font-size:2.1rem;}
+.card{background:#1a1a1a;padding:28px;margin-bottom:25px;border-left:4px solid #d4c08a;border-radius:6px;transition:.3s;box-shadow:0 0 22px rgba(0,0,0,.25);}
+.card.featured{background:linear-gradient(135deg,#1a1a1a,#101010);border-left:6px solid #d4c08a;}
+.card:hover{transform:translateY(-3px);}
+.card h3{margin-bottom:10px;font-size:1.45rem;}
+.card a{color:white;text-decoration:none;}
+.card a:hover{color:#d4c08a;}
+.badge{display:inline-block;margin-bottom:12px;color:#111;background:#d4c08a;padding:4px 10px;border-radius:100px;font-size:.82rem;font-weight:bold;}
+footer{text-align:center;padding:40px;color:#888;border-top:1px solid #222;}
+@media(max-width:700px){nav a{margin:0 7px;font-size:.9rem}section{padding:70px 18px}}
 </style>
-
 </head>
-
 <body>
-
 <nav>
 <a href="#">Home</a>
 <a href="#library">Library</a>
 <a href="#about">About A.K.</a>
 <a href="#contact">Contact</a>
 </nav>
-
 <header>
-
 <h1>THE HALLWAY LIBRARY</h1>
-
-<p class="subtitle">
-Stories and Poems by Allan Kantun
-</p>
-
-<p class="quote">
-"Every book holds a story. Every door hides another."
-</p>
-
+<p class="subtitle">Stories and Poems by Allan Kantun</p>
+<p class="quote">"Every book holds a story. Every door hides another."</p>
 </header>
-
 <section id="library">
-
-<h2 class="section-title">
-Shelves of The Hallway Library
-</h2>
-
-<div class="card">
-
-<h3>
-<a href="el-pasillo-020.html">
-El Pasillo 020
-</a>
-</h3>
-
-<p>
-A psychological mystery about memory, loss, and the doors we continue to open long after they should have remained closed.
-</p>
-
+<h2 class="section-title">Shelves of The Hallway Library</h2>
+<div class="card featured">
+<span class="badge">Featured Work</span>
+<h3><a href="el-pasillo-020.html">El Pasillo y la Puerta 020</a></h3>
+<p>A psychological mystery about memory, loss, and the doors we continue to open long after they should have remained closed.</p>
 </div>
-
 <div class="card">
-
-<h3>
-<a href="tailor-curse.html">
-The Curse of the Tailor
-</a>
-</h3>
-
-<p>
-A tale of mystery, obsession and consequences hidden behind every stitch.
-</p>
-
+<h3><a href="tailor-curse.html">The Curse of the Tailor</a></h3>
+<p>A tale of mystery, obsession and consequences hidden behind every stitch.</p>
 </div>
-
 <div class="card">
-
-<h3>
-The Wolf and the Young Woman
-</h3>
-
-<p>
-A tale still being written, waiting for its place on the shelves of the library.
-</p>
-
+<h3>The Wolf and the Young Woman</h3>
+<p>A tale still being written, waiting for its place on the shelves of the library.</p>
 </div>
-
 </section>
-
 <section id="about">
-
-<h2 class="section-title">
-About A.K.
-</h2>
-
+<h2 class="section-title">About A.K.</h2>
 <div class="card">
-
-<p>
-Welcome to The Hallway Library.
-</p>
-
-<br>
-
-<p>
-My name is Allan Kantun, though most stories here are signed simply as A.K.
-</p>
-
-<br>
-
-<p>
-I write about forgotten places, strange corridors, memories that refuse to fade, and the quiet spaces between reality and dreams.
-</p>
-
-<br>
-
-<p>
-This library is a collection of stories, poems and fragments gathered along the way.
-</p>
-
+<p>Welcome to The Hallway Library.</p><br>
+<p>My name is Allan Kantun, though most stories here are signed simply as A.K.</p><br>
+<p>I write about forgotten places, strange corridors, memories that refuse to fade, and the quiet spaces between reality and dreams.</p><br>
+<p>This library is a collection of stories, poems and fragments gathered along the way.</p>
 </div>
-
 </section>
-
 <section id="contact">
-
-<h2 class="section-title">
-Contact
-</h2>
-
+<h2 class="section-title">Contact</h2>
 <div class="card">
-
-<p>
-A guestbook and reader comments section will be added in the future.
-</p>
-
-<br>
-
-<p>
-Until then, thank you for visiting The Hallway Library.
-</p>
-
+<p>A guestbook and reader comments section will be added in the future.</p><br>
+<p>Until then, thank you for visiting The Hallway Library.</p>
 </div>
-
 </section>
-
-<footer>
-
-Written by Allan Kantun — A.K.
-
-</footer>
-
+<footer>Written by Allan Kantun — A.K.</footer>
 </body>
-
 </html>

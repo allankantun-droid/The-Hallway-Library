@@ -7,463 +7,164 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{background:#0d0d0d;color:#f5f0e6;font-family:Georgia,serif;line-height:1.85;}
-.hero{min-height:100vh;background:linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.82)),url("portada-final-de-sitio.png");background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;}
-.hero-inner{max-width:900px;padding:40px 25px;background:rgba(0,0,0,.25);backdrop-filter:blur(2px);border:1px solid rgba(212,192,138,.28);}
-.hero h1{font-size:clamp(2.4rem,7vw,5.8rem);letter-spacing:5px;text-transform:uppercase;line-height:1.05;margin-bottom:18px;text-shadow:0 3px 20px #000;}
-.hero .byline{color:#d4c08a;font-size:1.25rem;margin-bottom:14px;}
-.hero .tagline{font-style:italic;color:#ddd;max-width:700px;margin:20px auto 0;}
-.hero .actions{margin-top:34px;}
-a.button{display:inline-block;margin:8px;padding:13px 26px;background:#d4c08a;color:#111;text-decoration:none;font-weight:bold;border-radius:4px;transition:.25s;}
-a.button:hover{opacity:.85;transform:translateY(-2px);}
-.topnav{position:sticky;top:0;z-index:20;background:rgba(0,0,0,.92);text-align:center;padding:14px;border-bottom:1px solid #242424;}
-.topnav a{color:#eee;text-decoration:none;margin:0 14px;font-size:.98rem;}
-.topnav a:hover{color:#d4c08a;}
-.shell{max-width:1100px;margin:auto;padding:70px 22px;}
-.panel{background:#171717;border-left:4px solid #d4c08a;padding:32px;margin-bottom:42px;box-shadow:0 0 20px rgba(0,0,0,.25);}
-.panel h2,.section-title{text-align:center;color:#d4c08a;font-size:2rem;margin-bottom:24px;}
-.meta{text-align:center;color:#cfcfcf;margin-bottom:38px;}
-.language-switch{text-align:center;margin:35px 0 50px;}
-.book{background:#f5f0e6;color:#211f1b;max-width:900px;margin:0 auto 70px;padding:clamp(28px,6vw,72px);border-radius:6px;box-shadow:0 0 35px rgba(0,0,0,.45);}
-.book h2{text-align:center;font-size:clamp(2rem,5vw,3.2rem);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
-.book .book-sub{text-align:center;color:#675b44;margin-bottom:45px;}
-.chapter{margin-bottom:64px;}
-.chapter h3{font-size:1.75rem;color:#75562b;border-bottom:2px solid #d4c08a;padding-bottom:10px;margin-bottom:28px;}
-.chapter p{font-size:1.08rem;margin:0 0 18px;text-align:justify;}
-.ornament{text-align:center;color:#9a8150;font-size:1.25rem;margin:46px 0;}
-.hidden{display:none;}
-.comments{background:#151515;border-top:1px solid #2b2b2b;padding:70px 22px;}
-.comments-inner{max-width:900px;margin:auto;}
-.comments h2{text-align:center;color:#d4c08a;margin-bottom:16px;font-size:2rem;}
-.comments p{text-align:center;color:#cfcfcf;margin-bottom:25px;}
-.back{text-align:center;margin:60px 0 10px;}
-.back a{color:#d4c08a;text-decoration:none;font-weight:bold;}
-footer{text-align:center;padding:40px;color:#888;border-top:1px solid #222;}
-@media(max-width:700px){.topnav a{display:inline-block;margin:6px 8px;}.chapter p{text-align:left;font-size:1rem;}.panel{padding:24px;}}
-</style>
-<script>
-function showLanguage(lang){
-  const es=document.getElementById('espanol');
-  const en=document.getElementById('english');
-  if(lang==='es'){es.classList.remove('hidden'); en.classList.add('hidden'); document.documentElement.lang='es';}
-  else{en.classList.remove('hidden'); es.classList.add('hidden'); document.documentElement.lang='en';}
-  document.getElementById(lang==='es'?'espanol':'english').scrollIntoView({behavior:'smooth'});
+body{background:#0d0d0d;color:#f5f0e6;font-family:Georgia,serif;line-height:1.85;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;width:100%;background:rgba(0,0,0,.78);backdrop-filter:blur(8px);z-index:20;text-align:center;padding:14px 10px;border-bottom:1px solid rgba(212,192,138,.25);}
+nav a{color:#f5f0e6;text-decoration:none;margin:0 16px;font-weight:bold;}
+nav a:hover{color:#d4c08a;}
+.hero{
+min-height:100vh;
+background-image:linear-gradient(rgba(0,0,0,.18),rgba(0,0,0,.88)),url("portada-final-de-sitio.png");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:90px 20px 40px;
 }
-</script>
+.hero-inner{max-width:980px;padding:48px 28px;border:1px solid rgba(212,192,138,.35);background:rgba(0,0,0,.42);box-shadow:0 0 60px rgba(0,0,0,.55);animation:fadeIn 1.2s ease both;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+h1{font-size:clamp(2.6rem,7vw,6rem);letter-spacing:5px;line-height:1.08;text-transform:uppercase;}
+.byline{color:#d4c08a;margin-top:18px;font-size:1.15rem;}
+.genre{margin-top:14px;color:#ddd;}
+.quote{margin-top:24px;font-style:italic;color:#f2e6c8;}
+.hero-buttons{margin-top:34px;}
+.btn{display:inline-block;margin:8px;padding:12px 24px;background:#d4c08a;color:#111;text-decoration:none;border-radius:4px;font-weight:bold;border:0;cursor:pointer;font-family:Georgia,serif;font-size:1rem;}
+.btn.secondary{background:transparent;color:#f5f0e6;border:1px solid #d4c08a;}
+.btn:hover{opacity:.86;}
+section{max-width:1100px;margin:auto;padding:76px 24px;}
+.section-title{text-align:center;color:#d4c08a;font-size:2.1rem;margin-bottom:30px;}
+.synopsis{background:#171717;border-left:4px solid #d4c08a;padding:34px;margin:auto;max-width:860px;color:#f5f0e6;}
+.language-panel{text-align:center;margin:40px 0 18px;}
+.language-panel button{margin:8px;padding:12px 24px;background:#1b1b1b;color:#f5f0e6;border:1px solid #d4c08a;border-radius:4px;font-weight:bold;cursor:pointer;font-family:Georgia,serif;}
+.language-panel button.active{background:#d4c08a;color:#111;}
+.reader-shell{max-width:980px;margin:40px auto;}
+.reader-top{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;margin-bottom:20px;color:#d4c08a;}
+select{background:#1b1b1b;color:#f5f0e6;border:1px solid #d4c08a;padding:10px;border-radius:4px;font-family:Georgia,serif;}
+.book-page{
+background:#f3ecd8;
+color:#241f18;
+min-height:640px;
+padding:64px clamp(28px,7vw,86px);
+border-radius:10px;
+box-shadow:0 0 35px rgba(0,0,0,.5), inset 0 0 45px rgba(70,45,15,.08);
+border:1px solid #c9b37e;
+position:relative;
+transition:transform .42s ease, opacity .42s ease;
+transform-origin:left center;
+}
+.book-page.turning{opacity:0;transform:translateX(34px) rotateY(-7deg) scale(.985);}
+.book-page h2{text-align:center;font-size:clamp(1.6rem,4vw,2.5rem);margin-bottom:12px;color:#1c1710;}
+.page-subtitle{text-align:center;color:#6b5633;margin-bottom:34px;font-style:italic;}
+.book-page p{font-size:1.08rem;margin-bottom:18px;text-align:justify;}
+.page-number{position:absolute;bottom:22px;left:0;right:0;text-align:center;color:#8a7650;font-size:.9rem;}
+.reader-controls{display:flex;justify-content:center;gap:12px;margin:24px 0;flex-wrap:wrap;}
+.reader-controls button{padding:12px 22px;background:#d4c08a;color:#111;border:0;border-radius:4px;font-weight:bold;cursor:pointer;font-family:Georgia,serif;}
+.reader-controls button:disabled{opacity:.35;cursor:not-allowed;}
+.comments{max-width:900px;margin:50px auto;background:#151515;border:1px solid rgba(212,192,138,.35);padding:30px;border-radius:8px;}
+.comments p{color:#ddd;}
+.back{text-align:center;margin:55px 0;}
+footer{text-align:center;padding:40px;color:#888;border-top:1px solid #222;}
+@media(max-width:700px){nav a{margin:0 7px;font-size:.9rem}.book-page{padding:42px 24px;min-height:560px}.reader-top{display:block;text-align:center}}
+</style>
 </head>
 <body>
-
-<nav class="topnav">
+<nav>
 <a href="index.html">Library</a>
-<a href="#synopsis">Sinopsis</a>
-<a href="javascript:void(0)" onclick="showLanguage('es')">Español</a>
-<a href="javascript:void(0)" onclick="showLanguage('en')">English</a>
+<a href="#synopsis">Synopsis</a>
+<a href="#reader">Lectura</a>
 <a href="#comments">Comentarios</a>
 </nav>
-
 <header class="hero">
 <div class="hero-inner">
 <h1>El Pasillo<br>y la Puerta 020</h1>
 <p class="byline">Por Allan Kantun</p>
-<p>Psychological Mystery • Horror • Drama</p>
-<p class="tagline">“Hay recuerdos que nunca aprenden a despedirse.”</p>
-<div class="actions">
-<a class="button" href="javascript:void(0)" onclick="showLanguage('es')">Leer en Español</a>
-<a class="button" href="javascript:void(0)" onclick="showLanguage('en')">Read in English</a>
+<p class="genre">Psychological Mystery • Horror • Drama</p>
+<p class="quote">“Hay recuerdos que nunca aprenden a despedirse.”</p>
+<div class="hero-buttons">
+<a class="btn" href="#reader">Leer la historia</a>
+<a class="btn secondary" href="index.html">Volver a la biblioteca</a>
 </div>
 </div>
 </header>
-
-<main class="shell">
-<section id="synopsis" class="panel">
-<h2>Sinopsis</h2>
-<p>Despiertas en un pasillo desconocido. Una puerta al final. El número 020. Cada vez que sales, el pasillo cambia. Los espejos observan. Las sombras siguen tus pasos. Y cuando finalmente cruces la puerta 020 descubrirás que no estabas buscando una salida, sino un recuerdo.</p>
+<section id="synopsis">
+<h2 class="section-title">Sinopsis</h2>
+<div class="synopsis" id="synopsisText"></div>
 </section>
-
-<div class="language-switch">
-<a class="button" href="javascript:void(0)" onclick="showLanguage('es')">Español</a>
-<a class="button" href="javascript:void(0)" onclick="showLanguage('en')">English</a>
+<section id="reader">
+<h2 class="section-title">Lectura</h2>\n<p style="text-align:center;color:#cfc3a8;margin-top:-18px;margin-bottom:28px;">Usa los botones para avanzar como si pasaras las páginas de un libro.</p>
+<div class="language-panel">
+<button id="btnEs" class="active" onclick="setLanguage('es')">Español</button>
+<button id="btnEn" onclick="setLanguage('en')">English</button>
 </div>
-
-<section id="espanol" class="book">
-<h2>El Pasillo y la Puerta 020</h2>
-<p class="book-sub">Autor: Allan Kantun</p>
-<article class="chapter">
-<h3>Parte I: El Pasillo</h3>
-<p>Fue una noche algo rara. El clima era fresco, con una lluvia tenue pero casi interminable, y dentro de la casa se podía sentir un calor algo insoportable. Después de un largo día de trabajo, tras pasar horas frente a la pantalla del ordenador, la lluvia cayó de sorpresa justo cuando iba de regreso a casa.</p>
-<p>Pero al final, ya podía respirar en la tranquilidad de mi hogar… o al menos eso pensé.</p>
-<p>La lluvia siguió por horas. Las opciones para combatir el aburrimiento eran pocas, y el calor no ayudaba en nada. Así que la única opción viable era tomar una larga ducha e intentar dormir temprano, solo para despertar al día siguiente y comenzar todo de nuevo.</p>
-<p>Recuerdo haberme servido un vaso con agua y un par de hielos para dejarlo junto a mi mesa de noche. Tenía un libro que aún no había podido terminar, pero por alguna razón, esa noche no me apetecía continuar.</p>
-<p>Así que simplemente me recosté… e intenté conciliar el sueño.</p>
-<p>Sin mucho éxito.</p>
-<p>Al menos por un par de horas.</p>
-<p>La lluvia seguía cayendo.</p>
-<p>De repente, me encontré en un pasillo extraño. Parecía el pasillo de un antiguo hotel, con un ambiente muy al estilo de los años 60.</p>
-<p>Había música. Un jazz suave y melódico, con ritmo… pero no podía identificar su procedencia.</p>
-<p>Simplemente estaba ahí, en el aire.</p>
-<p>En los muros del pasillo había espejos. Espejos que no reflejaban nada… solo oscuridad.</p>
-<p>Las losetas del piso, en blanco y negro, marcaban el camino hacia dos direcciones. A unos doce pasos exactamente, el pasillo se dividía: hacia la izquierda, una puerta blanca, desgastada por el tiempo, con el número 020. Al fondo, hacia la derecha… una puerta que decía: salida de emergencia.</p>
-<p>La desesperación no tardó en aparecer.</p>
-<p>Intenté pedir ayuda. Pregunté, grité… pero nadie respondió. Toqué la puerta un par de veces.</p>
-<p>Luego más fuerte. Pregunté si alguien estaba dentro. Nada.</p>
-<p>Intenté forzarla… pero no cedió.</p>
-<p>Entonces, los escuché. Susurros. Voces tenues. Ecos lejanos que no lograba entender.</p>
-<p>El pánico comenzó a filtrarse, poco a poco, en mi mente.</p>
-<p>Corrí hacia la salida de emergencia una vez más.</p>
-</article>
-<div class="ornament">✦ ✦ ✦</div>
-<article class="chapter">
-<h3>Parte II: La Criatura y los Espejos</h3>
-<p>Giré la perilla. Atravesé la puerta… Y aparecí de nuevo al inicio.</p>
-<p>El mismo pasillo. Los mismos espejos. Pero ahora… la habitación 020 estaba a mi derecha.</p>
-<p>Confundido, intenté mantener la calma. Es un sueño, pensé. Una pesadilla. Solo debo despertar… Pero, ¿cómo?</p>
-<p>Mientras trataba de encontrar una explicación lógica, la música cambió. Se volvió más intensa.</p>
-<p>Más cercana. Parecía provenir de la habitación 020.</p>
-<p>Un frío recorrió mi espalda. No estaba solo.</p>
-<p>Avancé lentamente hacia la puerta. Paso a paso.</p>
-<p>Entonces lo noté. Las luces habían cambiado. Ya no eran cálidas… ahora tenían un tono rojizo, débil, enfermo.</p>
-<p>Los espejos también eran distintos. Algunos seguían vacíos. Oscuros. Profundos. Pero otros…</p>
-<p>no. Uno, justo frente a la puerta 020, mostraba un reflejo opaco y borroso. Y otro, junto a la salida de emergencia… deformaba la imagen, alargándola, como esos espejos de feria.</p>
-<p>La angustia se volvió más pesada. Las preguntas en mi mente ya no tenían sentido. Y aun así… mi maldita curiosidad me empujó de nuevo hacia la salida.</p>
-<p>Giré la perilla. Crucé el umbral.</p>
-<p>Y otra vez… El inicio. Pero el pasillo volvió a cambiar. El aire era más frío. Mucho más frío. Las luces ahora eran de un rojo más intenso. Algunas colgaban de las paredes, como si hubieran sido golpeadas… pero seguían encendidas.</p>
-<p>Esta vez, los susurros eran más claros. Risas. Voces. Conversaciones… que no lograba entender.</p>
-<p>Los marcos de los espejos… habían cambiado. Ya no eran los mismos. Algunos eran rectangulares. Otros, ovalados. Como si la realidad misma se estuviera deformando.</p>
-<p>Y al fondo del pasillo… ese espejo… El que siempre quedaba frente a mí al cruzar la salida…</p>
-<p>Ya no mostraba mi reflejo. Solo una sombra. Una silueta.</p>
-<p>Mi mente intentó aferrarse a la lógica. Es solo mi reflejo, me dije. Nada más. Pero el pánico…</p>
-<p>No estaba de acuerdo.</p>
-<p>De pronto, la música se detuvo al otro lado de la puerta. Fue como si alguien cambiara de estación en una vieja radio. La estática en el aire era innegable. Como pequeños pulsos de electricidad rodeando mi cuerpo.</p>
-<p>Un pánico frío goteaba de mi frente. El terror que sentía en ese momento era insoportable. El miedo me obligaba a voltear hacia uno de los espejos. Por más que me resistía… por más que me negaba… un impulso controlaba mi cuerpo. Oscuridad. Solo oscuridad se veía dentro del espejo.</p>
-<p>De pronto, la música comenzó a sonar de nuevo. Esta vez, más rápida. Más intensa. La banda tocaba como si se tratara de una gran fiesta… del otro lado de la puerta 020.</p>
-<p>Un pequeño eco interrumpió mi delirio. Pasos. Muy cerca de mí. Me asomé por el pasillo… pero no había nadie. Los pasos continuaron, cada vez más fuertes. Como si alguien marchara… a paso militar. Más cerca. Y más cerca.</p>
-<p>Mis ojos parecían no funcionar del todo… pero mis oídos captaban cada estruendoso paso.</p>
-<p>Entonces lo vi. Una sombra comenzó a dibujarse sobre las losetas del piso. Alargada. Deforme.</p>
-<p>Como si algo… demasiado grande… se acercara.</p>
-<p>El miedo explotó dentro de mí. Corrí. Sin mirar atrás. Corrí hacia la salida de emergencia una vez más.</p>
-<p>Pero antes de salir… algo llamó mi atención. Fue apenas un instante. Como cuando ves algo en la esquina de tu mirada. No estaba seguro. Quizá fue mi imaginación. No podía detenerme.</p>
-<p>La sombra en el suelo estaba cada vez más cerca. Y, al borde del pánico, crucé la puerta.</p>
-<p>Y otra vez… El inicio. El mismo punto de partida… o eso creía.</p>
-<p>Esta vez, el pasillo era diferente. Mucho más oscuro. Muy pocas luces seguían encendidas. Un farol parpadeaba débilmente, mientras los demás estaban completamente apagados. Era como estar dentro de un hotel abandonado. Olvidado.</p>
-<p>El polvo cubría el suelo. El moho trepaba por las paredes, como si hubiera devorado todo el lugar. Los espejos seguían oscuros.</p>
-<p>Pero algo había cambiado. Los dos espejos a los lados del pasillo estaban hechos trizas, esparcidos sobre las losetas. Y el espejo del fondo… Ese no había caído. Tenía un golpe. Una grieta profunda, como si alguien hubiera intentado romperlo… sin lograrlo.</p>
-<p>Me acerqué lentamente. Tenía que comprobarlo. Lo había visto. No podía haber sido mi imaginación.</p>
-<p>Del otro lado del espejo… Había algo. Una silueta. Oscura. No puedo asegurar que la vi con claridad… Pero lo sentí. Sentí su mirada clavarse en lo más profundo de mí. Como una punzada directa en el pecho.</p>
-<p>Entonces, la música volvió a interrumpirlo todo. Ahora sonaba distorsionada. Entrecortada.</p>
-<p>Como un vinilo al final de su pista… Cuando la aguja salta una y otra vez.</p>
-<p>Y justo en ese momento… Un sonido. Seco. Pequeño. Algo cayó.</p>
-<p>Me giré lentamente. Un diminuto fragmento de cristal… Acababa de desprenderse del espejo.</p>
-<p>Di un paso hacia él. Luego otro. Y entonces lo sentí otra vez. Esa punzada. Esa sensación.</p>
-<p>Como si alguien… Me estuviera observando.</p>
-<p>Enfrenté mi miedo y me quedé frente al espejo roto. Apenas podía reconocerme en él. No sabría decir si era por las grietas, o porque mi mente ya me jugaba bromas… o porque la cordura había decidido abandonarme.</p>
-<p>Los mismos pasos pesados de aquella criatura se escucharon de nuevo. Esta vez, acompañados de un jadeo intenso… sofocado. Sin esperarlo, el lugar entero se sacudió. Un terremoto, quizá… imposible.</p>
-<p>Las pocas luces que aún funcionaban comenzaron a parpadear sin descanso. Un sonido agudo me torturaba los oídos. Con las manos en la cabeza, de rodillas en el suelo… todo temblaba.</p>
-<p>Los espejos comenzaron a estallar uno por uno.</p>
-<p>Y detrás de mí… la sentí. La criatura, jadeante, acercándose más y más.</p>
-<p>Sin escape alguno, corrí de nuevo hacia la salida de emergencia. Y al abrirla… ahí estaba. La criatura. Un ser alto, deforme, con un cuerpo desproporcionado… como un troll o un ogro gris de más de dos o tres metros. Su largo cabello cubría parte de su rostro desfigurado. Un grito horrible y desgarrador salió de su boca mientras extendía sus largos brazos hacia mí.</p>
-<p>Retrocedí un par de pasos y, por suerte, logré esquivarlo. Y ahí quedó. Entre la salida y yo. La criatura soltó otro grito desgarrador… como el lamento de miles de años carcomiéndole el alma a un hombre.</p>
-<p>Y en ese diminuto instante… vi mi oportunidad. Me escabullí por un costado de su cuerpo hasta lograr cruzar el umbral.</p>
-<p>Y entonces… de nuevo estaba en el mismo pasillo. Pero ahora todo había cambiado. Todo había vuelto a la normalidad. Un pasillo común y corriente… de un hotel. Todo había vuelto a la normalidad… o al menos eso parecía.</p>
-<p>Las luces funcionaban. Los espejos ya no estaban hechos trizas. No había criaturas. Ni sombras. Pero aun así… me sentía inquieto. Alerta. Ansioso.</p>
-<p>Todo era silencio. Un silencio absoluto. Sin ninguna señal de vida a mi alrededor… más que la mía.</p>
-<p>Una vez más, me acerqué a la puerta de la habitación. Seguía cerrada. Del otro lado… nada.</p>
-<p>Solo silencio.</p>
-<p>En mi desesperación, ya no podía más. Golpeé la puerta. Intenté patearla. Empujé con todas mis fuerzas. Pero no logré ni siquiera arrancar una astilla de madera.</p>
-<p>Apoyé los puños y los antebrazos contra la puerta. La frente pegada a ella… Y comencé a llorar. La desesperación, la ansiedad, la incertidumbre… y el miedo. Oh, el miedo. Estaba ahí…</p>
-<p>acurrucado en mi pecho, apretando el corazón.</p>
-<p>—Maldición —grité con desesperación, al borde del cansancio y la agonía. Mi mente no podía más.</p>
-<p>—Por favor… —gritaba— ayuda… por favor… alguien…</p>
-<p>Golpeé la puerta una vez más con mis propias manos. Pero nada. Hasta que, del otro lado…</p>
-<p>una voz. Muy tenue.</p>
-<p>—No… por ahora no.</p>
-<p>—Hola… ayuda… por favor… —grité una tercera, cuarta y quinta vez.</p>
-<p>Entonces, ocurrió. Por debajo de la puerta comenzó a escurrirse agua. Agua muy fría. El pasillo comenzó a inundarse. De nuevo, las luces parpadearon.</p>
-<p>El agua subía rápido. Ya había alcanzado un nivel por encima de mis rodillas. Era fría… muy fría. Como el agua en el fondo de un lago congelado.</p>
-<p>Como pude, llegué a la puerta de salida una vez más. Con la mano sobre la perilla… me detuve. ¿Otra vez? ¿Otro recorrido en círculos? Mi mente se llenaba de preguntas… pero no encontraba ninguna respuesta.</p>
-<p>Mi cuerpo temblaba entre la desesperación y el frío del agua, que segundo a segundo subía de nivel. Reaccioné. Aún sostenía la perilla. El agua ya me llegaba al cuello.</p>
-<p>Y entonces lo noté. Era salada. Amarga. Pesada. Como nadar contra una corriente invisible.</p>
-<p>En el último instante… simplemente cerré los ojos. Y me dejé cubrir por ella. Mi mano soltó la perilla lentamente. Vi mi vida pasar frente a mis ojos. Caía. El agua me arrastraba hacia el fondo.</p>
-</article>
-<div class="ornament">✦ ✦ ✦</div>
-<article class="chapter">
-<h3>Parte III: La Habitación 020</h3>
-<p>Pero entonces… desperté.</p>
-<p>Solté un grito ahogado bajo el agua. Lleno de furia… y de deseo. Abrí la puerta. Y fue como ser succionado por una corriente… un remolino.</p>
-<p>Tirado. Cansado. De rodillas. Pero vivo. Vivo… aunque atrapado en el pasillo. Mientras cuestionaba todo… sin respuestas claras.</p>
-<p>Despierto. Me encuentro tirado sobre el suelo del mismo pasillo. Las losetas aún conservan pequeñas manchas de agua.</p>
-<p>Entonces... ¿Fue real? No creo soportar más. Este ir y venir. Girando en círculos eternos. Con más preguntas que respuestas. Un laberinto sin salida.</p>
-<p>Quisiera simplemente abrir esa puerta. Entrar. Salir de aquí. Eso me repetía una y otra vez dentro de mi mente.</p>
-<p>Necesitaba calmarme. Respirar. Levantarme. Como pude, me apoyé sobre mis brazos y logré incorporarme de rodillas. Con la cabeza baja. Las manos cerradas en puños. Apretándolos con todas mis fuerzas. Conteniendo las lágrimas. Intentando respirar. Intentando apaciguar el caos dentro de mi mente.</p>
-<p>Finalmente logré ponerme de pie. Me limpié las lágrimas con el brazo. Y di un paso al frente.</p>
-<p>Mientras levantaba la mirada... lo vi. Una sombra. Del otro lado del espejo. Una criatura de ojos rojos brillantes. Observándome. Sonriendo. No se movía ni un solo centímetro. No hacía ningún ruido. Solo sonreía.</p>
-<p>Respiré profundo. Sostuvé su mirada. Y pasé frente a él. Sin miedo. Sin prisas. Simplemente caminé frente al espejo. Sin bajar la mirada. Directo hacia la puerta de salida.</p>
-<p>Entonces ocurrió algo. La sonrisa comenzó a desvanecerse lentamente. Y el rojo intenso de sus ojos... se fue apagando. Como una brasa consumida por el tiempo.</p>
-<p>Tomé la perilla. Abrí la puerta una vez más. Y crucé el umbral.</p>
-<p>De nuevo en el mismo lugar. Pero ahora había un cambio. Todo era diferente otra vez. Era como si el aire fuera menos pesado. Más tranquilo. Más fácil de respirar. Los espejos y las luces parecían normales. De vuelta en aquel extraño pasillo con apariencia de hotel de los años sesenta.</p>
-<p>Esta vez intenté con la puerta de la habitación 020. Golpeé un par de veces. Nada.</p>
-<p>Simplemente me di la vuelta para reiniciar la escena. Porque así se sentía. Como un laberinto de reinicios. Una y otra vez.</p>
-<p>Di un paso... y me desplomé contra la pared. Había perdido las fuerzas. Terminé sentado en el suelo, junto a la puerta blanca. La frustración. El miedo. El cansancio.</p>
-<p>Intenté contener las lágrimas con las pocas fuerzas que me quedaban. Pero no fueron suficientes. Simplemente lloré. Lloré tan amargamente que, entre mis lágrimas, volví a encontrar el sabor de las aguas que habían inundado el pasillo unas veinte vueltas atrás. Lloré hasta no poder más. Y me dormí.</p>
-<p>Dios sabe cuánto tiempo permanecí inconsciente. Cuando desperté, seguía cansado. Abatido.</p>
-<p>Me puse de pie y comenzó a caminar una vez más hacia la salida.</p>
-<p>Esta vez pude ver mi propio reflejo en los espejos. La imagen de un hombre cansado.</p>
-<p>Derrotado. Cada paso dolía. Cada pensamiento dolía. Cada latido dolía. No sabía cuánto tiempo más podría seguir así. La poca esperanza que me quedaba se apagaba lentamente. Y dolía. Pero no quería terminar allí para siempre.</p>
-<p>Justo cuando iba a abrir la puerta de salida, escuché algo. Voces. Risas. Sonidos alegres. Corrí de nuevo hacia la puerta. Golpeé con fuerza.</p>
-<p>—¿Hola? ¿Hay alguien ahí? ¡Ayuda!</p>
-<p>Nadie respondió. Las voces desaparecieron. Solo quedó el silencio.</p>
-<p>Una vez más crucé la salida. Con esperanza. Quizá en la siguiente vuelta responderían. Qué equivocado estaba.</p>
-<p>Lo intenté diez veces más. Diez vueltas más. Hasta que ya no pude continuar. Me dejé caer frente a la puerta. Cansado. Vencido. Mirándola fijamente. Luchando contra el sueño.</p>
-<p>Y entonces volví a quedarme dormido.</p>
-<p>Cuando desperté... la puerta estaba abierta. No podía creerlo. Mi mente intentaba encontrar una explicación. Esperaba que fuera otro truco del pasillo. Otro engaño.</p>
-<p>Me acerqué lentamente. Intentando controlar la ansiedad. A cada paso percibía un aroma dulce: vainilla.</p>
-<p>Asomé la cabeza por la abertura.</p>
-<p>—¿Hola?</p>
-<p>La palabra salió casi como un susurro. Nadie respondió. Entré con cautela. Incluso coloqué un pequeño mueble para impedir que la puerta se cerrara. No quería quedar atrapado en un espacio tan pequeño.</p>
-<p>Era un apartamento sencillo. Una pequeña sala. Una cocina diminuta. Una sola habitación.</p>
-<p>Vacío. Las cortinas permanecían cerradas. El tocadiscos que tantas veces había escuchado estaba allí. Apagado.</p>
-<p>La pequeña chimenea seguía encendida. Frente a ella había un sillón reclinable. Una mesa con un cenicero. Un habano descansaba en uno de sus bordes, todavía encendido. Una botella de ron. Una copa servida. Y nadie alrededor.</p>
-<p>Recorrí el apartamento. No encontré a nadie. Abrí una puerta; era un armario. Ropa de mujer.</p>
-<p>Algunas pertenencias. Nada más.</p>
-<p>La siguiente puerta conducía al baño. Un baño impregnado de un aroma a miel y avena. La regadera goteaba lentamente. Las gotas resonaban en el silencio. Intenté cerrar la llave. Me mojé un poco en el proceso. Por suerte había varias toallas colgadas. Tomé la más pequeña para secarme las manos. Luego me limpié el rostro.</p>
-<p>Y ahí estaba de nuevo. Ese aroma: vainilla.</p>
-<p>Busqué una vez más por toda la habitación. Nada fuera de lo normal. Solo una gran cama cubierta por sábanas negras. Sola. Fría. En una habitación vacía. Y aun así... llena de melancolía. El vacío de un hogar. El frío del silencio.</p>
-<p>Entonces escuché pasos. Corrí hacia la cocina.</p>
-<p>Y la vi. Sentada junto a una pequeña mesa. Una niña. Alegre. Sonriente. Balanceando los pies como cualquier niña pequeña. Feliz. Un fantasma. O quizá... el recuerdo de alguien.</p>
-<p>Comencé a retroceder lentamente. No podía más. Ya no. Corrí. Corrí con todas mis fuerzas hacia la salida.</p>
-<p>—¡Este no puede ser el final!</p>
-<p>Crucé el umbral una vez más. Y regresé al pasillo. De vuelta al principio. Comenzamos de nuevo.</p>
-<p>Con la mirada cansada y de rodillas en el suelo una vez más, me puse de pie lentamente. El lugar parecía normal de nuevo. El aire era más limpio. Más ligero. El aroma a vainilla casi había desaparecido.</p>
-<p>La puerta de la habitación 020 estaba abierta una vez más. Pero por dentro estaba vacía. Sin muebles. Sin objetos en la cocina. Nada. Vacía. Ni siquiera la niña se encontraba allí.</p>
-<p>Caminé por el apartamento durante un rato. La habitación vacía. El clóset vacío. El baño vacío.</p>
-<p>La regadera aún goteaba. Y, ¿por qué no? Cerré la llave una vez más con todas mis fuerzas.</p>
-<p>Unas cuantas gotas cayeron sobre mi mano. Esta vez no había toallas, así que tuve que secarme en la camisa.</p>
-<p>Con las manos apoyadas sobre el pecho, me detuve un instante antes de salir del baño.</p>
-<p>Respiré. Respiré profundamente. Aún quedaba algo de aquel aroma a vainilla. Así que lo respiré todo. Intenté guardarlo dentro de mí tanto como pude. Pero casi me ahogué. Y tuve que soltarlo. Ese último aliento. Ese último respiro. Ese último grito.</p>
-<p>Salí de la habitación. Apagué la luz. Y cerré la puerta. Después apagué la luz de la cocina y me detuve nuevamente en la sala vacía.</p>
-<p>Caminé hasta la ventana. Corrí las cortinas. Y vi la ciudad. Sus luces iluminaban débilmente la habitación. Por primera vez pude ver el horizonte. El sol estaba a punto de salir.</p>
-<p>Volví a cerrar las cortinas. Caminé hacia la puerta que daba al pasillo. Y antes de salir...</p>
-<p>observé una última vez aquel lugar.</p>
-<p>Por un instante, la habitación cobró vida. Los muebles regresaron. El fuego volvió a encenderse. La música sonó una vez más. El aroma a vainilla llenó el aire. Pero solo fue un instante. Un maldito y diminuto instante.</p>
-<p>Abrí la puerta. Y me volví hacia la habitación vacía. Apagué la luz. Y salí.</p>
-<p>Pero antes de cerrar la puerta... la niña apareció.</p>
-</article>
-<div class="ornament">✦ ✦ ✦</div>
-<article class="chapter">
-<h3>Parte IV: El Amanecer</h3>
-<p>Apareció para despedirse mientras cerraba la puerta.</p>
-<p>Me quedé sujetando la manija durante unos segundos. Conteniendo las lágrimas. Finalmente la solté. Y comencé a caminar lentamente hacia la salida. Sin esperanza. Sin miedo a lo que pudiera encontrar después. Simplemente crucé el umbral.</p>
-<p>De nuevo al inicio. O eso creí.</p>
-<p>Con un fuerte dolor en el pecho, desperté sobresaltado en mi propia cama.</p>
-<p>La lluvia seguía cayendo. Eran las tres de la mañana.</p>
-<p>Me quedé sentado intentando recuperar el aliento. Poco a poco recuperé la calma. Me levanté.</p>
-<p>Fui directamente al baño. Me quité la ropa mojada y entré a la regadera. Dejé que el agua recorriera todo mi cuerpo. El agua caliente calmó mi corazón. Y poco a poco la tensión comenzó a desaparecer.</p>
-<p>Me lavé el rostro. Me lavé el cuerpo. Simplemente permití que el agua me cubriera.</p>
-<p>Cuando terminé, cerré la llave. Extendí la mano y tomé una toalla. Una grande. Suave. Me sequé por completo y la colgué nuevamente sobre la barra del baño.</p>
-<p>Entonces la vi. La otra toalla. La pequeña. Perfectamente colgada.</p>
-<p>Respiré profundamente. Con nostalgia. Y salí del baño.</p>
-<p>Me puse ropa limpia y caminé hasta el balcón. La lluvia comenzaba a detenerse. La brisa de la madrugada acariciaba el aire. Y por primera vez en mucho tiempo... sentí que había regresado.</p>
-<p>Permanecí allí hasta ver salir el sol. Aún oculto entre nubes grises. Observando las calles cubiertas de agua.</p>
-<p>En un bello amanecer.</p>
-</article>
-<div class="ornament">FIN</div>
-</section>
-
-<section id="english" class="book hidden">
-<h2>The Endless Hallway and Door 020</h2>
-<p class="book-sub">Author: Allan Kantun</p>
-<article class="chapter">
-<h3>Part I: The Endless Hallway</h3>
-<p>It was a rather strange night. The weather was cool, with a faint but almost endless rain, and inside the house, the heat felt somewhat unbearable. After a long day at work, spending hours in front of the computer screen, the rain caught me by surprise just as I was heading home.</p>
-<p>But finally, I could breathe in the tranquility of my home... or so I thought.</p>
-<p>The rain continued for hours. There were few options to fight the boredom, and the heat didn&#x27;t help at all. So the only viable option was to take a long shower and try to sleep early, only to wake up the next day and start it all over again.</p>
-<p>I remember pouring myself a glass of water with a couple of ice cubes to leave by my nightstand. I had a book I hadn&#x27;t been able to finish yet, but for some reason, tonight I didn&#x27;t feel like continuing.</p>
-<p>So I simply lay down... and tried to fall asleep.</p>
-<p>Without much success.</p>
-<p>At least for a couple of hours.</p>
-<p>The rain kept falling.</p>
-<p>Suddenly, I found myself in a strange hallway. It looked like the hallway of an old hotel, with a very 1960s-style atmosphere.</p>
-<p>There was music. A soft, melodic jazz, with a rhythm... but I couldn&#x27;t identify where it was coming from. It was simply there, in the air.</p>
-<p>There were mirrors on the hallway walls. Mirrors that reflected nothing... only darkness.</p>
-<p>The black and white floor tiles marked the path in two directions. Exactly twelve steps away, the hallway split: to the left, a white door, worn by time, with the number 020. At the far end, to the right... a door that read: emergency exit.</p>
-<p>Desperation didn&#x27;t take long to set in.</p>
-<p>I tried to call for help. I asked, I shouted... but nobody answered. I knocked on the door a couple of times. Then harder. I asked if anyone was inside. Nothing.</p>
-<p>I tried to force it open... but it didn&#x27;t budge.</p>
-<p>Then, I heard them. Whispers. Faint voices. Distant echoes I couldn&#x27;t quite understand.</p>
-<p>Panic began to seep, little by little, into my mind. I ran toward the emergency exit once more.</p>
-</article>
-<div class="ornament">✦ ✦ ✦</div>
-<article class="chapter">
-<h3>Part II: The Creature and the Mirrors</h3>
-<p>I turned the doorknob. I crossed the threshold... and I appeared right back at the beginning.</p>
-<p>The same hallway. The same mirrors. But now... room 020 was on my right.</p>
-<p>Confused, I tried to keep my calm. It&#x27;s a dream, I thought. A nightmare. I just need to wake up...</p>
-<p>But how?</p>
-<p>While I tried to find a logical explanation, the music changed. It became more intense. Closer. It seemed to come from room 020. A chill ran down my spine. I wasn&#x27;t alone.</p>
-<p>I advanced slowly toward the door. Step by step.</p>
-<p>Then I noticed it. The lights had changed. They were no longer warm... now they had a reddish, dim, sickly hue.</p>
-<p>The mirrors were different too. Some were still empty. Dark. Deep. But others... weren&#x27;t. One, right in front of door 020, showed a dull, blurry reflection. And another, next to the emergency exit... distorted the image, stretching it out, like those funhouse mirrors.</p>
-<p>The anguish grew heavier. The questions in my mind no longer made sense. And yet... My damn curiosity pushed me toward the exit again.</p>
-<p>I turned the doorknob. I crossed the threshold.</p>
-<p>And once more... The beginning. But the hallway changed again. The air was colder. Much colder. The lights were now a more intense red. Some hung from the walls, as if they had been struck... but they were still on.</p>
-<p>This time, the whispers were clearer. Laughter. Voices. Conversations... that I couldn&#x27;t understand.</p>
-<p>The mirrors&#x27; frames... had changed. They were no longer the same. Some were rectangular.</p>
-<p>Others, oval. As if reality itself were warping.</p>
-<p>And at the end of the hallway... that mirror... The one that always faced me upon crossing the exit... It no longer showed my reflection. Only a shadow. A silhouette.</p>
-<p>My mind tried to cling to logic. It&#x27;s just my reflection, I told myself. Nothing more. But panic... did not agree.</p>
-<p>Suddenly, the music stopped on the other side of the door. It was as if someone had changed the station on an old radio. The static in the air was undeniable. Like tiny pulses of electricity surrounding my body.</p>
-<p>A cold panic dripped from my forehead. The terror I felt at that moment was unbearable. Fear forced me to turn toward one of the mirrors. No matter how much I resisted... no matter how much I refused... An impulse controlled my body. Darkness. Only darkness could be seen inside the mirror.</p>
-<p>Suddenly, the music began to play again. This time, faster. More intense. The band played as if it were a huge party... on the other side of door 020.</p>
-<p>A small echo interrupted my delirium. Footsteps. Very close to me. I peeked down the hallway...</p>
-<p>but there was no one.</p>
-<p>The footsteps continued, louder and louder. As if someone were marching... in a military cadence. Closer. And closer.</p>
-<p>My eyes didn&#x27;t seem to work fully... but my ears caught every thundering step.</p>
-<p>Then I saw it. A shadow began to outline itself on the floor tiles. Elongated. Deformed. As if something... far too big... were approaching.</p>
-<p>Fear exploded inside me. I ran. Without looking back. I ran toward the emergency exit once more.</p>
-<p>But before leaving... something caught my attention. It was just a split second. Like when you see something out of the corner of your eye. I wasn&#x27;t sure. Maybe it was my imagination. I couldn&#x27;t stop. The shadow on the floor was getting closer and closer. And, on the verge of panic, I crossed the door.</p>
-<p>And once more... The beginning.</p>
-<p>The same starting point... or so I thought. This time, the hallway was different. Much darker.</p>
-<p>Very few lights remained on. A single lamp flickered weakly, while the others were completely dead. It was like being inside an abandoned hotel. Forgotten.</p>
-<p>Dust covered the floor. Mold crawled up the walls, as if it had devoured the entire place. The mirrors remained dark.</p>
-<p>But something had changed. The two mirrors on the sides of the hallway were shattered into pieces, scattered across the tiles. And the mirror at the end... That one hadn&#x27;t fallen. It had an impact mark. A deep crack, as if someone had tried to break it... without succeeding.</p>
-<p>I approached slowly. I had to check. I had seen it. It couldn&#x27;t have been my imagination.</p>
-<p>On the other side of the mirror... There was something. A silhouette. Dark. I can&#x27;t say for sure that I saw it clearly... But I felt it. I felt its gaze pierce into the deepest part of me. Like a sharp stab straight to the chest.</p>
-<p>Then, the music interrupted everything again. Now it sounded distorted. Choppy. Like a vinyl record at the end of its track... When the needle skips over and over again.</p>
-<p>And right at that moment... A sound. Sharp. Small. Something fell.</p>
-<p>I turned around slowly. A tiny shard of glass... Had just broken off from the mirror.</p>
-<p>I took a step toward it. Then another. And then I felt it again. That sharp stab. That sensation. As if someone... Were watching me.</p>
-<p>I faced my fear and stood before the broken mirror. I could barely recognize myself in it. I couldn&#x27;t tell if it was because of the cracks, or because my mind was already playing tricks on me... or because sanity had decided to abandon me.</p>
-<p>The same heavy footsteps of that creature were heard again. This time, accompanied by a heavy... suffocated panting. Without warning, the entire place shook. An earthquake, perhaps...</p>
-<p>impossible.</p>
-<p>The few lights that still worked began to flicker relentlessly. A high-pitched sound tortured my ears. With my hands on my head, kneeling on the floor... everything trembled. The mirrors began to shatter one by one.</p>
-<p>And behind me... I felt it. The creature, panting, getting closer and closer. With no escape left, I ran toward the emergency exit again. And as I opened it... there it was. The creature.</p>
-<p>A tall, deformed being, with a disproportionate body... like a troll or a gray ogre over two or three meters tall. Its long hair covered part of its disfigured face. A horrific, gut-wrenching scream came out of its mouth as it extended its long arms toward me.</p>
-<p>I backed up a couple of steps and, luckily, managed to dodge it. And there it stood. Between the exit and me.</p>
-<p>The creature let out another gut-wrenching scream... like the lament of thousands of years eating away at a man&#x27;s soul. And in that tiny fraction of a second... I saw my chance. I slipped past the side of its body until I managed to cross the threshold.</p>
-<p>And then... I was back in the same hallway. But now everything had changed. Everything had gone back to normal. An ordinary, everyday hallway... of a hotel. Everything had gone back to normal... or so it seemed.</p>
-<p>The lights worked. The mirrors were no longer shattered. There were no creatures. No shadows. But still... I felt uneasy. Alert. Anxious.</p>
-<p>Everything was silence. An absolute silence. With no sign of life around me... other than my own.</p>
-<p>Once more, I approached the room door. It was still locked. On the other side... nothing. Only silence.</p>
-<p>In my desperation, I couldn&#x27;t take it anymore. I banged on the door. I tried to kick it. I pushed with all my strength. But I couldn&#x27;t even splinter the wood.</p>
-<p>I pressed my fists and forearms against the door. My forehead pressed against it... And I began to cry. The desperation, the anxiety, the uncertainty... and the fear. Oh, the fear. It was there...</p>
-<p>curled up in my chest, squeezing my heart.</p>
-<p>&quot;Damn it!&quot; I screamed in desperation, on the verge of exhaustion and agony. My mind couldn&#x27;t take any more.</p>
-<p>&quot;Please...&quot; I shouted, &quot;help... please... anyone...&quot;</p>
-<p>I struck the door once more with my bare hands. But nothing. Until, from the other side... a voice. Very faint.</p>
-<p>&quot;No... not for now.&quot;</p>
-<p>&quot;Hello... help... please...&quot; I shouted a third, fourth, and fifth time.</p>
-<p>Then, it happened. Water began to seep from under the door. Very cold water. The hallway began to flood. Again, the lights flickered.</p>
-<p>The water was rising fast. It had already reached a level above my knees. It was cold... very cold. Like the water at the bottom of a frozen lake.</p>
-<p>As best as I could, I reached the exit door once more. With my hand on the doorknob... I stopped. Again? Another loop in circles? My mind filled with questions... but found no answers.</p>
-<p>My body trembled between desperation and the coldness of the water, which was rising level by second. I reacted. I was still holding the doorknob. The water was already up to my neck.</p>
-<p>And then I noticed it. It was salty. Bitter. Heavy. Like swimming against an invisible current.</p>
-<p>At the last moment... I simply closed my eyes. And let it submerge me. My hand slowly let go of the doorknob. I saw my life flash before my eyes. I was falling. The water was dragging me to the bottom.</p>
-</article>
-<div class="ornament">✦ ✦ ✦</div>
-<article class="chapter">
-<h3>Part III: Room 020</h3>
-<p>But then... I woke up.</p>
-<p>I let out a gasp under the water. Full of fury... and desire. I opened the door. And it was like being sucked in by a current... a whirlpool.</p>
-<p>Dropped. Tired. On my knees. But alive. Alive... though trapped in the hallway.</p>
-<p>While I questioned everything... with no clear answers. Awake. I find myself lying on the floor of the same hallway. The tiles still hold small puddles of water.</p>
-<p>So... Was it real? I don&#x27;t think I can take any more. This back and forth. Spinning in eternal circles. With more questions than answers. A labyrinth with no exit.</p>
-<p>I just want to open that door. Go in. Get out of here. I repeated that to myself over and over inside my mind.</p>
-<p>I needed to calm down. Breathe. Get up.</p>
-<p>As best as I could, I pushed myself up on my arms and managed to get onto my knees. With my head down. My hands clenched into fists. Squeezing them with all my strength. Holding back tears. Trying to breathe. Trying to soothe the chaos inside my mind.</p>
-<p>Finally, I managed to stand up. I wiped away my tears with my arm. And took a step forward.</p>
-<p>As I raised my gaze... I saw it. A shadow. On the other side of the mirror. A creature with glowing red eyes. Watching me. Smiling. It didn&#x27;t move a single inch. It didn&#x27;t make a sound. It just smiled.</p>
-<p>I took a deep breath. I held its gaze. And I passed right in front of it. Without fear. Without rush. I simply walked past the mirror. Without looking down. Straight toward the exit door.</p>
-<p>Then something happened. The smile began to fade slowly. And the intense red of its eyes...</p>
-<p>went out. Like an ember consumed by time.</p>
-<p>I took the doorknob. I opened the door once more. And crossed the threshold.</p>
-<p>Back in the same place. But now there was a change. Everything was different again. It was as if the air were less heavy. Calmer. Easier to breathe. The mirrors and lights seemed normal.</p>
-<p>Back in that strange hallway looking like a 1960s hotel.</p>
-<p>This time I tried door number 020. I knocked a couple of times. Nothing. I simply turned around to reset the scene. Because that&#x27;s how it felt. Like a labyrinth of resets. Over and over again.</p>
-<p>I took a step... and collapsed against the wall. I had lost my strength. I ended up sitting on the floor, next to the white door.</p>
-<p>The frustration. The fear. The fatigue.</p>
-<p>I tried to hold back my tears with what little strength I had left. But it wasn&#x27;t enough. I simply cried. I cried so bitterly that, amidst my tears, I tasted again the waters that had flooded the hallway some twenty loops ago. I cried until I couldn&#x27;t anymore. And I fell asleep.</p>
-<p>God knows how long I remained unconscious. When I woke up, I was still tired. Dejected. I stood up and began to walk once more toward the exit.</p>
-<p>This time I could see my own reflection in the mirrors. The image of a tired man. Defeated.</p>
-<p>Every step hurt. Every thought hurt. Every heartbeat hurt. I didn&#x27;t know how much longer I could go on like this. What little hope I had left was slowly fading. And it hurt. But I didn&#x27;t want to end up there forever.</p>
-<p>Just as I was about to open the exit door, I heard something. Voices. Laughter. Joyful sounds. I ran back toward the door. I knocked hard.</p>
-<p>&quot;Hello? Is anyone there? Help!&quot;</p>
-<p>Nobody answered. The voices vanished. Only silence remained.</p>
-<p>Once more I crossed the exit. With hope. Maybe on the next turn they would answer. How wrong I was.</p>
-<p>I tried ten more times. Ten more loops. Until I couldn&#x27;t go on. I let myself fall in front of the door.</p>
-<p>Tired. Vanquished. Staring blankly at it. Fighting off sleep. And then I fell asleep again.</p>
-<p>When I woke up... the door was open.</p>
-<p>I couldn&#x27;t believe it. My mind tried to find an explanation. I expected it to be another trick of the hallway. Another deception. I approached slowly. Trying to control the anxiety. With every step, I noticed a sweet scent: vanilla.</p>
-<p>I peeked my head through the opening.</p>
-<p>&quot;Hello?&quot;</p>
-<p>The word came out almost as a whisper. Nobody answered.</p>
-<p>I entered cautiously. I even placed a small piece of furniture to keep the door from closing. I didn&#x27;t want to get trapped in such a small space.</p>
-<p>It was a simple apartment. A small living room. A tiny kitchen. A single bedroom. Empty. The curtains remained drawn. The record player I had heard so many times was there. Turned off.</p>
-<p>The small fireplace was still lit. In front of it was a recliner. A table with an ashtray. A cigar rested on one of its edges, still lit. A bottle of rum. A poured glass. And no one around.</p>
-<p>I toured the apartment. I didn&#x27;t find anyone. I opened a door; it was a closet. Women&#x27;s clothing.</p>
-<p>A few belongings. Nothing more.</p>
-<p>The next door led to the bathroom. A bathroom steeped in a scent of honey and oatmeal. The shower was dripping slowly. The drops echoed in the silence. I tried to turn off the faucet. I got a bit wet in the process. Luckily there were several towels hanging. I took the smallest one to dry my hands. Then I wiped my face.</p>
-<p>And there it was again. That scent: vanilla.</p>
-<p>I searched the whole room once more. Nothing out of the ordinary. Just a large bed covered in black sheets. Alone. Cold. In an empty room. And yet... filled with melancholy. The emptiness of a home. The chill of silence.</p>
-<p>Then I heard footsteps. I ran toward the kitchen.</p>
-<p>And I saw her. Sitting by a small table. A girl. Joyful. Smiling. Swinging her feet like any little girl.</p>
-<p>Happy. A ghost. Or perhaps... the memory of someone.</p>
-<p>I began to back away slowly. I couldn&#x27;t take it anymore. Not anymore. I ran. I ran with all my strength toward the exit.</p>
-<p>&quot;This can&#x27;t be the end!&quot;</p>
-<p>I crossed the threshold once more. And returned to the hallway. Back to the beginning. We start again.</p>
-<p>With a tired gaze and on my knees on the floor once more, I stood up slowly. The place seemed normal again. The air was cleaner. Lighter. The scent of vanilla had almost vanished.</p>
-<p>The door to room 020 was open once more. But inside it was empty. No furniture. No objects in the kitchen. Nothing. Empty. Not even the girl was there.</p>
-<p>I walked around the apartment for a while. The empty bedroom. The empty closet. The empty bathroom. The shower was still dripping. And, why not? I turned off the faucet once more with all my might. A few drops fell on my hand. This time there were no towels, so I had to dry them on my shirt.</p>
-<p>With my hands pressed against my chest, I paused for a moment before leaving the bathroom. I breathed. I took a deep breath. There was still some of that vanilla scent left. So I breathed it all in. I tried to keep it inside me as long as I could. But I almost choked. And I had to let it go. That last breath. That last gasp. That last cry.</p>
-<p>I left the room. I turned off the light. And I closed the door. Then I turned off the kitchen light and paused again in the empty living room.</p>
-<p>I walked over to the window. I drew the curtains. And I saw the city. Its lights weakly illuminated the room. For the first time, I could see the horizon. The sun was about to rise.</p>
-<p>I closed the curtains again. I walked toward the door that led to the hallway. And before leaving... I looked at that place one last time.</p>
-<p>For a flash, the room came to life. The furniture returned. The fire lit up again. The music played once more. The scent of vanilla filled the air. But it was only a flash. A damn, tiny flash.</p>
-<p>I opened the door. And turned back toward the empty room. I turned off the light. And left.</p>
-<p>But before closing the door... the ghost of the little girl appeared.</p>
-</article>
-<div class="ornament">✦ ✦ ✦</div>
-<article class="chapter">
-<h3>Part IV: The Dawn</h3>
-<p>She appeared to say goodbye as she closed the door.</p>
-<p>I stood holding the handle for a few seconds. Holding back tears. Finally, I let go. And I began to walk slowly toward the exit. Without hope. Without fear of what I might find next. I simply crossed the threshold.</p>
-<p>Back to the beginning. Or so I thought.</p>
-<p>With a sharp pain in my chest, I woke up with a start in my own bed.</p>
-<p>The rain was still falling. It was three in the morning.</p>
-<p>I sat up trying to catch my breath. Slowly, I regained my calm.</p>
-<p>I got up. I went straight to the bathroom. I took off my wet clothes and stepped into the shower. I let the water run all over my body. The hot water calmed my heart. And bit by bit, the tension began to fade.</p>
-<p>I washed my face. I washed my body. I simply allowed the water to cover me.</p>
-<p>When I finished, I turned off the faucet. I reached out and grabbed a towel. A large one. Soft. I dried myself completely and hung it back over the bathroom bar.</p>
-<p>Then I saw it. The other towel. The small one. Perfectly hung.</p>
-<p>I took a deep breath. With nostalgia. And left the bathroom.</p>
-<p>I put on clean clothes and walked out to the balcony. The rain was beginning to stop. The early morning breeze caressed the air. And for the first time in a long time... I felt like I had returned.</p>
-<p>I stayed there until I saw the sun rise. Still hidden among gray clouds. Watching the streets covered in water.</p>
-<p>In a beautiful dawn.</p>
-</article>
-<div class="ornament">THE END</div>
-</section>
-
-<div class="back">
-<a href="index.html">← Volver a The Hallway Library</a>
+<div class="reader-shell">
+<div class="reader-top">
+<div id="chapterLabel">Parte I</div>
+<label>Capítulo: <select id="chapterSelect" onchange="goChapter(this.value)"></select></label>
 </div>
-</main>
-
+<article class="book-page" id="bookPage"></article>
+<div class="reader-controls">
+<button onclick="prevPage()" id="prevBtn">← Página anterior</button>
+<button onclick="nextPage()" id="nextBtn">Página siguiente →</button>
+</div>
+</div>
+</section>
 <section id="comments" class="comments">
-<div class="comments-inner">
-<h2>Comentarios de lectores</h2>
-<p>Deja tu nombre y comentario usando GitHub. Si no aparece la caja de comentarios, activa Issues en el repositorio e instala Utterances para este repo.</p>
-<script src="https://utteranc.es/client.js"
-        repo="allankantun-droid/The-Hallway-Library"
-        issue-term="pathname"
-        label="comments"
-        theme="github-dark"
-        crossorigin="anonymous"
-        async>
-</script>
-</div>
+<h2 class="section-title">Comentarios</h2>
+<p>La sección de comentarios estará lista cuando activemos Giscus. Activa Discussions en GitHub y luego pega aquí el script generado por giscus.app para habilitar comentarios reales.</p>
+<!-- GISCUS READY:
+Cuando actives Discussions y generes tu script en https://giscus.app,
+pega aquí el <script> completo.
+Configuración recomendada:
+repo: allankantun-droid/The-Hallway-Library
+mapping: pathname
+category: General
+theme: dark
+-->
 </section>
-
-<footer>
-© 2026 Allan Kantun · The Hallway Library
-</footer>
-
+<div class="back"><a class="btn secondary" href="index.html">← Volver a The Hallway Library</a></div>
+<footer>© 2026 Allan Kantun — The Hallway Library</footer>
+<script>
+const BOOK = {"es": {"synopsis": "Despiertas en un pasillo desconocido. Una puerta al final. El número 020. Cada vez que sales, el pasillo cambia. Los espejos observan. Las sombras siguen tus pasos. Y cuando finalmente cruces la puerta 020 descubrirás que no estabas buscando una salida, sino un recuerdo.", "chapters": [{"title": "Parte I: El Pasillo", "paragraphs": ["Fue una noche algo rara. El clima era fresco, con una lluvia tenue pero casi interminable, y dentro de la casa se podía sentir un calor algo insoportable. Después de un largo día de trabajo, tras pasar horas frente a la pantalla del ordenador, la lluvia cayó de sorpresa justo cuando iba de regreso a casa. Pero al final, ya podía respirar en la tranquilidad de mi hogar… o al menos eso pensé.", "La lluvia siguió por horas. Las opciones para combatir el aburrimiento eran pocas, y el calor no ayudaba en nada. Así que la única opción viable era tomar una larga ducha e intentar dormir temprano, solo para despertar al día siguiente y comenzar todo de nuevo. Recuerdo haberme servido un vaso con agua y un par de hielos para dejarlo junto a mi mesa de noche. Tenía un libro que aún no había podido terminar, pero por alguna razón, esa noche no me apetecía continuar. Así que simplemente me recosté… e intenté conciliar el sueño. Sin mucho éxito. Al menos por un par de horas. La lluvia seguía cayendo. De repente, me encontré en un pasillo extraño. Parecía el pasillo de un antiguo hotel, con un ambiente muy al estilo de los años 60. Había música. Un jazz suave y melódico, con ritmo… pero no podía identificar su procedencia. Simplemente estaba ahí, en el aire. En los muros del pasillo había espejos. Espejos que no reflejaban nada… solo oscuridad. Las losetas del piso, en blanco y negro, marcaban el camino hacia dos direcciones. A unos doce pasos exactamente, el pasillo se dividía: hacia la izquierda, una puerta blanca, desgastada por el tiempo, con el número 020. Al fondo, hacia la derecha… una puerta que decía: salida de emergencia. La desesperación no tardó en aparecer. Intenté pedir ayuda. Pregunté, grité… pero nadie respondió. Toqué la puerta un par de veces. Luego más fuerte. Pregunté si alguien estaba dentro. Nada. Intenté forzarla… pero no cedió. Entonces, los escuché. Susurros. Voces tenues. Ecos lejanos que no lograba entender. El pánico comenzó a filtrarse, poco a poco, en mi mente. Corrí hacia la salida de emergencia una vez más."]}, {"title": "Parte II: La Criatura y los Espejos", "paragraphs": ["Giré la perilla. Atravesé la puerta… Y aparecí de nuevo al inicio. El mismo pasillo. Los mismos espejos. Pero ahora… la habitación 020 estaba a mi derecha.", "Confundido, intenté mantener la calma. Es un sueño, pensé. Una pesadilla. Solo debo despertar… Pero, ¿cómo? Mientras trataba de encontrar una explicación lógica, la música cambió. Se volvió más intensa. Más cercana. Parecía provenir de la habitación 020. Un frío recorrió mi espalda. No estaba solo. Avancé lentamente hacia la puerta. Paso a paso. Entonces lo noté. Las luces habían cambiado. Ya no eran cálidas… ahora tenían un tono rojizo, débil, enfermo. Los espejos también eran distintos. Algunos seguían vacíos. Oscuros. Profundos. Pero otros… no. Uno, justo frente a la puerta 020, mostraba un reflejo opaco y borroso. Y otro, junto a la salida de emergencia… deformaba la imagen, alargándola, como esos espejos de feria. La angustia se volvió más pesada. Las preguntas en mi mente ya no tenían sentido. Y aun así… mi maldita curiosidad me empujó de nuevo hacia la salida. Giré la perilla. Crucé el umbral. Y otra vez… El inicio. Pero el pasillo volvió a cambiar. El aire era más frío. Mucho más frío. Las luces ahora eran de un rojo más intenso. Algunas colgaban de las paredes, como si hubieran sido golpeadas… pero seguían encendidas. Esta vez, los susurros eran más claros. Risas. Voces. Conversaciones… que no lograba entender. Los marcos de los espejos… habían cambiado. Ya no eran los mismos. Algunos eran rectangulares. Otros, ovalados. Como si la realidad misma se estuviera deformando. Y al fondo del pasillo… ese espejo… El que siempre quedaba frente a mí al cruzar la salida… Ya no mostraba mi reflejo. Solo una sombra. Una silueta. Mi mente intentó aferrarse a la lógica. Es solo mi reflejo, me dije. Nada más. Pero el pánico… No estaba de acuerdo. De pronto, la música se detuvo al otro lado de la puerta. Fue como si alguien cambiara de estación en una vieja radio. La estática en el aire era innegable. Como pequeños pulsos de electricidad rodeando mi cuerpo. Un pánico frío goteaba de mi frente. El terror que sentía en ese momento era insoportable. El miedo me obligaba a voltear hacia uno de los espejos. Por más que me resistía… por más que me negaba… un impulso controlaba mi cuerpo. Oscuridad. Solo oscuridad se veía dentro del espejo.", "De pronto, la música comenzó a sonar de nuevo. Esta vez, más rápida. Más intensa. La banda tocaba como si se tratara de una gran fiesta… del otro lado de la puerta 020. Un pequeño eco interrumpió mi delirio. Pasos. Muy cerca de mí. Me asomé por el pasillo… pero no había nadie. Los pasos continuaron, cada vez más fuertes. Como si alguien marchara… a paso militar. Más cerca. Y más cerca. Mis ojos parecían no funcionar del todo… pero mis oídos captaban cada estruendoso paso. Entonces lo vi. Una sombra comenzó a dibujarse sobre las losetas del piso. Alargada. Deforme. Como si algo… demasiado grande… se acercara. El miedo explotó dentro de mí. Corrí. Sin mirar atrás. Corrí hacia la salida de emergencia una vez más. Pero antes de salir… algo llamó mi atención. Fue apenas un instante. Como cuando ves algo en la esquina de tu mirada. No estaba seguro. Quizá fue mi imaginación. No podía detenerme. La sombra en el suelo estaba cada vez más cerca. Y, al borde del pánico, crucé la puerta. Y otra vez… El inicio. El mismo punto de partida… o eso creía. Esta vez, el pasillo era diferente. Mucho más oscuro. Muy pocas luces seguían encendidas. Un farol parpadeaba débilmente, mientras los demás estaban completamente apagados. Era como estar dentro de un hotel abandonado. Olvidado. El polvo cubría el suelo. El moho trepaba por las paredes, como si hubiera devorado todo el lugar. Los espejos seguían oscuros. Pero algo había cambiado. Los dos espejos a los lados del pasillo estaban hechos trizas, esparcidos sobre las losetas. Y el espejo del fondo… Ese no había caído. Tenía un golpe. Una grieta profunda, como si alguien hubiera intentado romperlo… sin lograrlo. Me acerqué lentamente. Tenía que comprobarlo. Lo había visto. No podía haber sido mi imaginación. Del otro lado del espejo… Había algo. Una silueta. Oscura. No puedo asegurar que la vi con claridad… Pero lo sentí. Sentí su mirada clavarse en lo más profundo de mí. Como una punzada directa en el pecho. Entonces, la música volvió a interrumpirlo todo. Ahora sonaba distorsionada. Entrecortada. Como un vinilo al final de su pista… Cuando la aguja salta una y otra vez. Y justo en ese momento… Un sonido. Seco. Pequeño. Algo cayó. Me giré lentamente. Un diminuto fragmento de cristal… Acababa de desprenderse del espejo.", "Di un paso hacia él. Luego otro. Y entonces lo sentí otra vez. Esa punzada. Esa sensación. Como si alguien… Me estuviera observando. Enfrenté mi miedo y me quedé frente al espejo roto. Apenas podía reconocerme en él. No sabría decir si era por las grietas, o porque mi mente ya me jugaba bromas… o porque la cordura había decidido abandonarme. Los mismos pasos pesados de aquella criatura se escucharon de nuevo. Esta vez, acompañados de un jadeo intenso… sofocado. Sin esperarlo, el lugar entero se sacudió. Un terremoto, quizá… imposible. Las pocas luces que aún funcionaban comenzaron a parpadear sin descanso. Un sonido agudo me torturaba los oídos. Con las manos en la cabeza, de rodillas en el suelo… todo temblaba. Los espejos comenzaron a estallar uno por uno. Y detrás de mí… la sentí. La criatura, jadeante, acercándose más y más. Sin escape alguno, corrí de nuevo hacia la salida de emergencia. Y al abrirla… ahí estaba. La criatura. Un ser alto, deforme, con un cuerpo desproporcionado… como un troll o un ogro gris de más de dos o tres metros. Su largo cabello cubría parte de su rostro desfigurado. Un grito horrible y desgarrador salió de su boca mientras extendía sus largos brazos hacia mí. Retrocedí un par de pasos y, por suerte, logré esquivarlo. Y ahí quedó. Entre la salida y yo. La criatura soltó otro grito desgarrador… como el lamento de miles de años carcomiéndole el alma a un hombre. Y en ese diminuto instante… vi mi oportunidad. Me escabullí por un costado de su cuerpo hasta lograr cruzar el umbral. Y entonces… de nuevo estaba en el mismo pasillo. Pero ahora todo había cambiado. Todo había vuelto a la normalidad. Un pasillo común y corriente… de un hotel. Todo había vuelto a la normalidad… o al menos eso parecía. Las luces funcionaban. Los espejos ya no estaban hechos trizas. No había criaturas. Ni sombras. Pero aun así… me sentía inquieto. Alerta. Ansioso. Todo era silencio. Un silencio absoluto. Sin ninguna señal de vida a mi alrededor… más que la mía. Una vez más, me acerqué a la puerta de la habitación. Seguía cerrada. Del otro lado… nada. Solo silencio. En mi desesperación, ya no podía más. Golpeé la puerta. Intenté patearla. Empujé con todas mis fuerzas. Pero no logré ni siquiera arrancar una astilla de madera.", "Apoyé los puños y los antebrazos contra la puerta. La frente pegada a ella… Y comencé a llorar. La desesperación, la ansiedad, la incertidumbre… y el miedo. Oh, el miedo. Estaba ahí… acurrucado en mi pecho, apretando el corazón. —Maldición —grité con desesperación, al borde del cansancio y la agonía. Mi mente no podía más. —Por favor… —gritaba— ayuda… por favor… alguien… Golpeé la puerta una vez más con mis propias manos. Pero nada. Hasta que, del otro lado… una voz. Muy tenue. —No… por ahora no. —Hola… ayuda… por favor… —grité una tercera, cuarta y quinta vez. Entonces, ocurrió. Por debajo de la puerta comenzó a escurrirse agua. Agua muy fría. El pasillo comenzó a inundarse. De nuevo, las luces parpadearon. El agua subía rápido. Ya había alcanzado un nivel por encima de mis rodillas. Era fría… muy fría. Como el agua en el fondo de un lago congelado. Como pude, llegué a la puerta de salida una vez más. Con la mano sobre la perilla… me detuve. ¿Otra vez? ¿Otro recorrido en círculos? Mi mente se llenaba de preguntas… pero no encontraba ninguna respuesta. Mi cuerpo temblaba entre la desesperación y el frío del agua, que segundo a segundo subía de nivel. Reaccioné. Aún sostenía la perilla. El agua ya me llegaba al cuello. Y entonces lo noté. Era salada. Amarga. Pesada. Como nadar contra una corriente invisible. En el último instante… simplemente cerré los ojos. Y me dejé cubrir por ella. Mi mano soltó la perilla lentamente. Vi mi vida pasar frente a mis ojos. Caía. El agua me arrastraba hacia el fondo."]}, {"title": "Parte III: La Habitación 020", "paragraphs": ["Pero entonces… desperté. Solté un grito ahogado bajo el agua. Lleno de furia… y de deseo. Abrí la puerta. Y fue como ser succionado por una corriente… un remolino. Tirado. Cansado. De rodillas. Pero vivo. Vivo… aunque atrapado en el pasillo. Mientras cuestionaba todo… sin respuestas claras. Despierto. Me encuentro tirado sobre el suelo del mismo pasillo. Las losetas aún conservan pequeñas manchas de agua.", "Entonces... ¿Fue real? No creo soportar más. Este ir y venir. Girando en círculos eternos. Con más preguntas que respuestas. Un laberinto sin salida. Quisiera simplemente abrir esa puerta. Entrar. Salir de aquí. Eso me repetía una y otra vez dentro de mi mente. Necesitaba calmarme. Respirar. Levantarme. Como pude, me apoyé sobre mis brazos y logré incorporarme de rodillas. Con la cabeza baja. Las manos cerradas en puños. Apretándolos con todas mis fuerzas. Conteniendo las lágrimas. Intentando respirar. Intentando apaciguar el caos dentro de mi mente. Finalmente logré ponerme de pie. Me limpié las lágrimas con el brazo. Y di un paso al frente. Mientras levantaba la mirada... lo vi. Una sombra. Del otro lado del espejo. Una criatura de ojos rojos brillantes. Observándome. Sonriendo. No se movía ni un solo centímetro. No hacía ningún ruido. Solo sonreía. Respiré profundo. Sostuvé su mirada. Y pasé frente a él. Sin miedo. Sin prisas. Simplemente caminé frente al espejo. Sin bajar la mirada. Directo hacia la puerta de salida. Entonces ocurrió algo. La sonrisa comenzó a desvanecerse lentamente. Y el rojo intenso de sus ojos... se fue apagando. Como una brasa consumida por el tiempo. Tomé la perilla. Abrí la puerta una vez más. Y crucé el umbral. De nuevo en el mismo lugar. Pero ahora había un cambio. Todo era diferente otra vez. Era como si el aire fuera menos pesado. Más tranquilo. Más fácil de respirar. Los espejos y las luces parecían normales. De vuelta en aquel extraño pasillo con apariencia de hotel de los años sesenta. Esta vez intenté con la puerta de la habitación 020. Golpeé un par de veces. Nada. Simplemente me di la vuelta para reiniciar la escena. Porque así se sentía. Como un laberinto de reinicios. Una y otra vez. Di un paso... y me desplomé contra la pared. Había perdido las fuerzas. Terminé sentado en el suelo, junto a la puerta blanca. La frustración. El miedo. El cansancio. Intenté contener las lágrimas con las pocas fuerzas que me quedaban. Pero no fueron suficientes. Simplemente lloré. Lloré tan amargamente que, entre mis lágrimas, volví a encontrar el sabor de las aguas que habían inundado el pasillo unas veinte vueltas atrás. Lloré hasta no poder más. Y me dormí. Dios sabe cuánto tiempo permanecí inconsciente. Cuando desperté, seguía cansado. Abatido. Me puse de pie y comenzó a caminar una vez más hacia la salida.", "Esta vez pude ver mi propio reflejo en los espejos. La imagen de un hombre cansado. Derrotado. Cada paso dolía. Cada pensamiento dolía. Cada latido dolía. No sabía cuánto tiempo más podría seguir así. La poca esperanza que me quedaba se apagaba lentamente. Y dolía. Pero no quería terminar allí para siempre. Justo cuando iba a abrir la puerta de salida, escuché algo. Voces. Risas. Sonidos alegres. Corrí de nuevo hacia la puerta. Golpeé con fuerza. —¿Hola? ¿Hay alguien ahí? ¡Ayuda! Nadie respondió. Las voces desaparecieron. Solo quedó el silencio. Una vez más crucé la salida. Con esperanza. Quizá en la siguiente vuelta responderían. Qué equivocado estaba. Lo intenté diez veces más. Diez vueltas más. Hasta que ya no pude continuar. Me dejé caer frente a la puerta. Cansado. Vencido. Mirándola fijamente. Luchando contra el sueño. Y entonces volví a quedarme dormido. Cuando desperté... la puerta estaba abierta. No podía creerlo. Mi mente intentaba encontrar una explicación. Esperaba que fuera otro truco del pasillo. Otro engaño. Me acerqué lentamente. Intentando controlar la ansiedad. A cada paso percibía un aroma dulce: vainilla. Asomé la cabeza por la abertura. —¿Hola? La palabra salió casi como un susurro. Nadie respondió. Entré con cautela. Incluso coloqué un pequeño mueble para impedir que la puerta se cerrara. No quería quedar atrapado en un espacio tan pequeño. Era un apartamento sencillo. Una pequeña sala. Una cocina diminuta. Una sola habitación. Vacío. Las cortinas permanecían cerradas. El tocadiscos que tantas veces había escuchado estaba allí. Apagado. La pequeña chimenea seguía encendida. Frente a ella había un sillón reclinable. Una mesa con un cenicero. Un habano descansaba en uno de sus bordes, todavía encendido. Una botella de ron. Una copa servida. Y nadie alrededor. Recorrí el apartamento. No encontré a nadie. Abrí una puerta; era un armario. Ropa de mujer. Algunas pertenencias. Nada más. La siguiente puerta conducía al baño. Un baño impregnado de un aroma a miel y avena. La regadera goteaba lentamente. Las gotas resonaban en el silencio. Intenté cerrar la llave. Me", "mojé un poco en el proceso. Por suerte había varias toallas colgadas. Tomé la más pequeña para secarme las manos. Luego me limpié el rostro. Y ahí estaba de nuevo. Ese aroma: vainilla. Busqué una vez más por toda la habitación. Nada fuera de lo normal. Solo una gran cama cubierta por sábanas negras. Sola. Fría. En una habitación vacía. Y aun así... llena de melancolía. El vacío de un hogar. El frío del silencio. Entonces escuché pasos. Corrí hacia la cocina. Y la vi. Sentada junto a una pequeña mesa. Una niña. Alegre. Sonriente. Balanceando los pies como cualquier niña pequeña. Feliz. Un fantasma. O quizá... el recuerdo de alguien. Comencé a retroceder lentamente. No podía más. Ya no. Corrí. Corrí con todas mis fuerzas hacia la salida. —¡Este no puede ser el final! Crucé el umbral una vez más. Y regresé al pasillo. De vuelta al principio. Comenzamos de nuevo. Con la mirada cansada y de rodillas en el suelo una vez más, me puse de pie lentamente. El lugar parecía normal de nuevo. El aire era más limpio. Más ligero. El aroma a vainilla casi había desaparecido. La puerta de la habitación 020 estaba abierta una vez más. Pero por dentro estaba vacía. Sin muebles. Sin objetos en la cocina. Nada. Vacía. Ni siquiera la niña se encontraba allí. Caminé por el apartamento durante un rato. La habitación vacía. El clóset vacío. El baño vacío. La regadera aún goteaba. Y, ¿por qué no? Cerré la llave una vez más con todas mis fuerzas. Unas cuantas gotas cayeron sobre mi mano. Esta vez no había toallas, así que tuve que secarme en la camisa. Con las manos apoyadas sobre el pecho, me detuve un instante antes de salir del baño. Respiré. Respiré profundamente. Aún quedaba algo de aquel aroma a vainilla. Así que lo respiré todo. Intenté guardarlo dentro de mí tanto como pude. Pero casi me ahogué. Y tuve que soltarlo. Ese último aliento. Ese último respiro. Ese último grito. Salí de la habitación. Apagué la luz. Y cerré la puerta. Después apagué la luz de la cocina y me detuve nuevamente en la sala vacía. Caminé hasta la ventana. Corrí las cortinas. Y vi la ciudad. Sus luces iluminaban débilmente la habitación. Por primera vez pude ver el horizonte. El sol estaba a punto de salir. Volví a cerrar las cortinas. Caminé hacia la puerta que daba al pasillo. Y antes de salir... observé una última vez aquel lugar.", "Por un instante, la habitación cobró vida. Los muebles regresaron. El fuego volvió a encenderse. La música sonó una vez más. El aroma a vainilla llenó el aire. Pero solo fue un instante. Un maldito y diminuto instante. Abrí la puerta. Y me volví hacia la habitación vacía. Apagué la luz. Y salí. Pero antes de cerrar la puerta... la niña apareció."]}, {"title": "Parte IV: El Amanecer", "paragraphs": ["Apareció para despedirse mientras cerraba la puerta. Me quedé sujetando la manija durante unos segundos. Conteniendo las lágrimas. Finalmente la solté. Y comencé a caminar lentamente hacia la salida. Sin esperanza. Sin miedo a lo que pudiera encontrar después. Simplemente crucé el umbral. De nuevo al inicio. O eso creí. Con un fuerte dolor en el pecho, desperté sobresaltado en mi propia cama. La lluvia seguía cayendo. Eran las tres de la mañana. Me quedé sentado intentando recuperar el aliento. Poco a poco recuperé la calma. Me levanté. Fui directamente al baño. Me quité la ropa mojada y entré a la regadera. Dejé que el agua recorriera todo mi cuerpo. El agua caliente calmó mi corazón. Y poco a poco la tensión comenzó a desaparecer. Me lavé el rostro. Me lavé el cuerpo. Simplemente permití que el agua me cubriera. Cuando terminé, cerré la llave. Extendí la mano y tomé una toalla. Una grande. Suave. Me sequé por completo y la colgué nuevamente sobre la barra del baño. Entonces la vi. La otra toalla. La pequeña. Perfectamente colgada. Respiré profundamente. Con nostalgia. Y salí del baño. Me puse ropa limpia y caminé hasta el balcón. La lluvia comenzaba a detenerse. La brisa de la madrugada acariciaba el aire. Y por primera vez en mucho tiempo... sentí que había regresado. Permanecí allí hasta ver salir el sol. Aún oculto entre nubes grises. Observando las calles cubiertas de agua. En un bello amanecer."]}]}, "en": {"synopsis": "You wake up in an unknown hallway. A door at the end. The number 020. Every time you leave, the hallway changes. The mirrors watch. Shadows follow your steps. And when you finally cross door 020, you will discover that you weren't looking for an exit, but a memory.", "chapters": [{"title": "Part I: The Endless Hallway", "paragraphs": ["It was a rather strange night. The weather was cool, with a faint but almost endless rain, and inside the house, the heat felt somewhat unbearable. After a long day at work, spending hours in front of the computer screen, the rain caught me by surprise just as I was heading home. But finally, I could breathe in the tranquility of my home... or so I thought. The rain continued for hours. There were few options to fight the boredom, and the heat didn't help at all. So the only viable option was to take a long shower and try to sleep early, only to wake up the next day and start it all over again.", "I remember pouring myself a glass of water with a couple of ice cubes to leave by my nightstand. I had a book I hadn't been able to finish yet, but for some reason, tonight I didn't feel like continuing. So I simply lay down... and tried to fall asleep. Without much success. At least for a couple of hours. The rain kept falling. Suddenly, I found myself in a strange hallway. It looked like the hallway of an old hotel, with a very 1960s-style atmosphere. There was music. A soft, melodic jazz, with a rhythm... but I couldn't identify where it was coming from. It was simply there, in the air. There were mirrors on the hallway walls. Mirrors that reflected nothing... only darkness. The black and white floor tiles marked the path in two directions. Exactly twelve steps away, the hallway split: to the left, a white door, worn by time, with the number 020. At the far end, to the right... a door that read: emergency exit. Desperation didn't take long to set in. I tried to call for help. I asked, I shouted... but nobody answered. I knocked on the door a couple of times. Then harder. I asked if anyone was inside. Nothing. I tried to force it open... but it didn't budge. Then, I heard them. Whispers. Faint voices. Distant echoes I couldn't quite understand. Panic began to seep, little by little, into my mind. I ran toward the emergency exit once more."]}, {"title": "Part II: The Creature and the Mirrors", "paragraphs": ["I turned the doorknob. I crossed the threshold... and I appeared right back at the beginning. The same hallway. The same mirrors. But now... room 020 was on my right. Confused, I tried to keep my calm. It's a dream, I thought. A nightmare. I just need to wake up... But how? While I tried to find a logical explanation, the music changed. It became more intense. Closer. It seemed to come from room 020. A chill ran down my spine. I wasn't alone. I advanced slowly toward the door. Step by step.", "Then I noticed it. The lights had changed. They were no longer warm... now they had a reddish, dim, sickly hue. The mirrors were different too. Some were still empty. Dark. Deep. But others... weren't. One, right in front of door 020, showed a dull, blurry reflection. And another, next to the emergency exit... distorted the image, stretching it out, like those funhouse mirrors. The anguish grew heavier. The questions in my mind no longer made sense. And yet... My damn curiosity pushed me toward the exit again. I turned the doorknob. I crossed the threshold. And once more... The beginning. But the hallway changed again. The air was colder. Much colder. The lights were now a more intense red. Some hung from the walls, as if they had been struck... but they were still on. This time, the whispers were clearer. Laughter. Voices. Conversations... that I couldn't understand. The mirrors' frames... had changed. They were no longer the same. Some were rectangular. Others, oval. As if reality itself were warping. And at the end of the hallway... that mirror... The one that always faced me upon crossing the exit... It no longer showed my reflection. Only a shadow. A silhouette. My mind tried to cling to logic. It's just my reflection, I told myself. Nothing more. But panic... did not agree. Suddenly, the music stopped on the other side of the door. It was as if someone had changed the station on an old radio. The static in the air was undeniable. Like tiny pulses of electricity surrounding my body. A cold panic dripped from my forehead. The terror I felt at that moment was unbearable. Fear forced me to turn toward one of the mirrors. No matter how much I resisted... no matter how much I refused... An impulse controlled my body. Darkness. Only darkness could be seen inside the mirror. Suddenly, the music began to play again. This time, faster. More intense. The band played as if it were a huge party... on the other side of door 020. A small echo interrupted my delirium. Footsteps. Very close to me. I peeked down the hallway... but there was no one. The footsteps continued, louder and louder. As if someone were marching... in a military cadence. Closer. And closer. My eyes didn't seem to work fully... but my ears caught every thundering step.", "Then I saw it. A shadow began to outline itself on the floor tiles. Elongated. Deformed. As if something... far too big... were approaching. Fear exploded inside me. I ran. Without looking back. I ran toward the emergency exit once more. But before leaving... something caught my attention. It was just a split second. Like when you see something out of the corner of your eye. I wasn't sure. Maybe it was my imagination. I couldn't stop. The shadow on the floor was getting closer and closer. And, on the verge of panic, I crossed the door. And once more... The beginning. The same starting point... or so I thought. This time, the hallway was different. Much darker. Very few lights remained on. A single lamp flickered weakly, while the others were completely dead. It was like being inside an abandoned hotel. Forgotten. Dust covered the floor. Mold crawled up the walls, as if it had devoured the entire place. The mirrors remained dark. But something had changed. The two mirrors on the sides of the hallway were shattered into pieces, scattered across the tiles. And the mirror at the end... That one hadn't fallen. It had an impact mark. A deep crack, as if someone had tried to break it... without succeeding. I approached slowly. I had to check. I had seen it. It couldn't have been my imagination. On the other side of the mirror... There was something. A silhouette. Dark. I can't say for sure that I saw it clearly... But I felt it. I felt its gaze pierce into the deepest part of me. Like a sharp stab straight to the chest. Then, the music interrupted everything again. Now it sounded distorted. Choppy. Like a vinyl record at the end of its track... When the needle skips over and over again. And right at that moment... A sound. Sharp. Small. Something fell. I turned around slowly. A tiny shard of glass... Had just broken off from the mirror. I took a step toward it. Then another. And then I felt it again. That sharp stab. That sensation. As if someone... Were watching me. I faced my fear and stood before the broken mirror. I could barely recognize myself in it. I couldn't tell if it was because of the cracks, or because my mind was already playing tricks on me... or because sanity had decided to abandon me. The same heavy footsteps of that creature were heard again. This time, accompanied by a heavy... suffocated panting. Without warning, the entire place shook. An earthquake, perhaps... impossible.", "The few lights that still worked began to flicker relentlessly. A high-pitched sound tortured my ears. With my hands on my head, kneeling on the floor... everything trembled. The mirrors began to shatter one by one. And behind me... I felt it. The creature, panting, getting closer and closer. With no escape left, I ran toward the emergency exit again. And as I opened it... there it was. The creature. A tall, deformed being, with a disproportionate body... like a troll or a gray ogre over two or three meters tall. Its long hair covered part of its disfigured face. A horrific, gut-wrenching scream came out of its mouth as it extended its long arms toward me. I backed up a couple of steps and, luckily, managed to dodge it. And there it stood. Between the exit and me. The creature let out another gut-wrenching scream... like the lament of thousands of years eating away at a man's soul. And in that tiny fraction of a second... I saw my chance. I slipped past the side of its body until I managed to cross the threshold. And then... I was back in the same hallway. But now everything had changed. Everything had gone back to normal. An ordinary, everyday hallway... of a hotel. Everything had gone back to normal... or so it seemed. The lights worked. The mirrors were no longer shattered. There were no creatures. No shadows. But still... I felt uneasy. Alert. Anxious. Everything was silence. An absolute silence. With no sign of life around me... other than my own. Once more, I approached the room door. It was still locked. On the other side... nothing. Only silence. In my desperation, I couldn't take it anymore. I banged on the door. I tried to kick it. I pushed with all my strength. But I couldn't even splinter the wood. I pressed my fists and forearms against the door. My forehead pressed against it... And I began to cry. The desperation, the anxiety, the uncertainty... and the fear. Oh, the fear. It was there... curled up in my chest, squeezing my heart. \"Damn it!\" I screamed in desperation, on the verge of exhaustion and agony. My mind couldn't take any more. \"Please...\" I shouted, \"help... please... anyone...\" I struck the door once more with my bare hands. But nothing. Until, from the other side... a voice. Very faint. \"No... not for now.\"", "\"Hello... help... please...\" I shouted a third, fourth, and fifth time. Then, it happened. Water began to seep from under the door. Very cold water. The hallway began to flood. Again, the lights flickered. The water was rising fast. It had already reached a level above my knees. It was cold... very cold. Like the water at the bottom of a frozen lake. As best as I could, I reached the exit door once more. With my hand on the doorknob... I stopped. Again? Another loop in circles? My mind filled with questions... but found no answers. My body trembled between desperation and the coldness of the water, which was rising level by second. I reacted. I was still holding the doorknob. The water was already up to my neck. And then I noticed it. It was salty. Bitter. Heavy. Like swimming against an invisible current. At the last moment... I simply closed my eyes. And let it submerge me. My hand slowly let go of the doorknob. I saw my life flash before my eyes. I was falling. The water was dragging me to the bottom."]}, {"title": "Part III: Room 020", "paragraphs": ["But then... I woke up. I let out a gasp under the water. Full of fury... and desire. I opened the door. And it was like being sucked in by a current... a whirlpool. Dropped. Tired. On my knees. But alive. Alive... though trapped in the hallway. While I questioned everything... with no clear answers. Awake. I find myself lying on the floor of the same hallway. The tiles still hold small puddles of water. So... Was it real? I don't think I can take any more. This back and forth. Spinning in eternal circles. With more questions than answers. A labyrinth with no exit. I just want to open that door. Go in. Get out of here. I repeated that to myself over and over inside my mind. I needed to calm down. Breathe. Get up. As best as I could, I pushed myself up on my arms and managed to get onto my knees. With my head down. My hands clenched into fists. Squeezing them with all my strength. Holding back tears. Trying to breathe. Trying to soothe the chaos inside my mind. Finally, I managed to stand up. I wiped away my tears with my arm. And took a step forward.", "As I raised my gaze... I saw it. A shadow. On the other side of the mirror. A creature with glowing red eyes. Watching me. Smiling. It didn't move a single inch. It didn't make a sound. It just smiled. I took a deep breath. I held its gaze. And I passed right in front of it. Without fear. Without rush. I simply walked past the mirror. Without looking down. Straight toward the exit door. Then something happened. The smile began to fade slowly. And the intense red of its eyes... went out. Like an ember consumed by time. I took the doorknob. I opened the door once more. And crossed the threshold. Back in the same place. But now there was a change. Everything was different again. It was as if the air were less heavy. Calmer. Easier to breathe. The mirrors and lights seemed normal. Back in that strange hallway looking like a 1960s hotel. This time I tried door number 020. I knocked a couple of times. Nothing. I simply turned around to reset the scene. Because that's how it felt. Like a labyrinth of resets. Over and over again. I took a step... and collapsed against the wall. I had lost my strength. I ended up sitting on the floor, next to the white door. The frustration. The fear. The fatigue. I tried to hold back my tears with what little strength I had left. But it wasn't enough. I simply cried. I cried so bitterly that, amidst my tears, I tasted again the waters that had flooded the hallway some twenty loops ago. I cried until I couldn't anymore. And I fell asleep. God knows how long I remained unconscious. When I woke up, I was still tired. Dejected. I stood up and began to walk once more toward the exit. This time I could see my own reflection in the mirrors. The image of a tired man. Defeated. Every step hurt. Every thought hurt. Every heartbeat hurt. I didn't know how much longer I could go on like this. What little hope I had left was slowly fading. And it hurt. But I didn't want to end up there forever. Just as I was about to open the exit door, I heard something. Voices. Laughter. Joyful sounds. I ran back toward the door. I knocked hard. \"Hello? Is anyone there? Help!\" Nobody answered. The voices vanished. Only silence remained. Once more I crossed the exit. With hope. Maybe on the next turn they would answer. How wrong I was.", "I tried ten more times. Ten more loops. Until I couldn't go on. I let myself fall in front of the door. Tired. Vanquished. Staring blankly at it. Fighting off sleep. And then I fell asleep again. When I woke up... the door was open. I couldn't believe it. My mind tried to find an explanation. I expected it to be another trick of the hallway. Another deception. I approached slowly. Trying to control the anxiety. With every step, I noticed a sweet scent: vanilla. I peeked my head through the opening. \"Hello?\" The word came out almost as a whisper. Nobody answered. I entered cautiously. I even placed a small piece of furniture to keep the door from closing. I didn't want to get trapped in such a small space. It was a simple apartment. A small living room. A tiny kitchen. A single bedroom. Empty. The curtains remained drawn. The record player I had heard so many times was there. Turned off. The small fireplace was still lit. In front of it was a recliner. A table with an ashtray. A cigar rested on one of its edges, still lit. A bottle of rum. A poured glass. And no one around. I toured the apartment. I didn't find anyone. I opened a door; it was a closet. Women's clothing. A few belongings. Nothing more. The next door led to the bathroom. A bathroom steeped in a scent of honey and oatmeal. The shower was dripping slowly. The drops echoed in the silence. I tried to turn off the faucet. I got a bit wet in the process. Luckily there were several towels hanging. I took the smallest one to dry my hands. Then I wiped my face. And there it was again. That scent: vanilla. I searched the whole room once more. Nothing out of the ordinary. Just a large bed covered in black sheets. Alone. Cold. In an empty room. And yet... filled with melancholy. The emptiness of a home. The chill of silence. Then I heard footsteps. I ran toward the kitchen. And I saw her. Sitting by a small table. A girl. Joyful. Smiling. Swinging her feet like any little girl. Happy. A ghost. Or perhaps... the memory of someone. I began to back away slowly. I couldn't take it anymore. Not anymore. I ran. I ran with all my strength toward the exit. \"This can't be the end!\"", "I crossed the threshold once more. And returned to the hallway. Back to the beginning. We start again. With a tired gaze and on my knees on the floor once more, I stood up slowly. The place seemed normal again. The air was cleaner. Lighter. The scent of vanilla had almost vanished. The door to room 020 was open once more. But inside it was empty. No furniture. No objects in the kitchen. Nothing. Empty. Not even the girl was there. I walked around the apartment for a while. The empty bedroom. The empty closet. The empty bathroom. The shower was still dripping. And, why not? I turned off the faucet once more with all my might. A few drops fell on my hand. This time there were no towels, so I had to dry them on my shirt. With my hands pressed against my chest, I paused for a moment before leaving the bathroom. I breathed. I took a deep breath. There was still some of that vanilla scent left. So I breathed it all in. I tried to keep it inside me as long as I could. But I almost choked. And I had to let it go. That last breath. That last gasp. That last cry. I left the room. I turned off the light. And I closed the door. Then I turned off the kitchen light and paused again in the empty living room. I walked over to the window. I drew the curtains. And I saw the city. Its lights weakly illuminated the room. For the first time, I could see the horizon. The sun was about to rise. I closed the curtains again. I walked toward the door that led to the hallway. And before leaving... I looked at that place one last time. For a flash, the room came to life. The furniture returned. The fire lit up again. The music played once more. The scent of vanilla filled the air. But it was only a flash. A damn, tiny flash. I opened the door. And turned back toward the empty room. I turned off the light. And left. But before closing the door... the ghost of the little girl appeared."]}, {"title": "Part IV: The Dawn", "paragraphs": ["She appeared to say goodbye as she closed the door. I stood holding the handle for a few seconds. Holding back tears. Finally, I let go. And I began to walk slowly toward the exit. Without hope. Without fear of what I might find next. I simply crossed the threshold. Back to the beginning. Or so I thought. With a sharp pain in my chest, I woke up with a start in my own bed.", "The rain was still falling. It was three in the morning. I sat up trying to catch my breath. Slowly, I regained my calm. I got up. I went straight to the bathroom. I took off my wet clothes and stepped into the shower. I let the water run all over my body. The hot water calmed my heart. And bit by bit, the tension began to fade. I washed my face. I washed my body. I simply allowed the water to cover me. When I finished, I turned off the faucet. I reached out and grabbed a towel. A large one. Soft. I dried myself completely and hung it back over the bathroom bar. Then I saw it. The other towel. The small one. Perfectly hung. I took a deep breath. With nostalgia. And left the bathroom. I put on clean clothes and walked out to the balcony. The rain was beginning to stop. The early morning breeze caressed the air. And for the first time in a long time... I felt like I had returned. I stayed there until I saw the sun rise. Still hidden among gray clouds. Watching the streets covered in water. In a beautiful dawn."]}]}};
+let currentLang='es';
+let pages=[];
+let currentPage=0;
+const perPage= currentLang === 'es' ? 8 : 8;
+function chunk(arr,size){let out=[];for(let i=0;i<arr.length;i+=size)out.push(arr.slice(i,i+size));return out;}
+function buildPages(){
+  pages=[];
+  BOOK[currentLang].chapters.forEach((ch,ci)=>{
+    chunk(ch.paragraphs,8).forEach((part,pi)=>{pages.push({chapterIndex:ci,title:ch.title,partIndex:pi,paras:part});});
+  });
+  const select=document.getElementById('chapterSelect');
+  select.innerHTML='';
+  BOOK[currentLang].chapters.forEach((ch,ci)=>{const opt=document.createElement('option'); opt.value=ci; opt.textContent=ch.title; select.appendChild(opt);});
+  document.getElementById('synopsisText').textContent=BOOK[currentLang].synopsis;
+}
+function renderPage(turn=true){
+  const el=document.getElementById('bookPage');
+  if(turn) el.classList.add('turning');
+  setTimeout(()=>{
+    const p=pages[currentPage];
+    const total=pages.length;
+    document.getElementById('chapterLabel').textContent=p.title;
+    document.getElementById('chapterSelect').value=p.chapterIndex;
+    let html='<h2>'+p.title+'</h2><div class="page-subtitle">'+(currentLang==='es'?'Página ':'Page ')+(currentPage+1)+' / '+total+'</div>';
+    p.paras.forEach(t=>html+='<p>'+escapeHtml(t)+'</p>');
+    html+='<div class="page-number">'+(currentPage+1)+' / '+total+'</div>';
+    el.innerHTML=html;
+    document.getElementById('prevBtn').disabled=currentPage===0;
+    document.getElementById('nextBtn').disabled=currentPage===pages.length-1;
+    el.classList.remove('turning');
+  }, turn?220:0);
+}
+function escapeHtml(t){return t.replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]));}
+function setLanguage(lang){currentLang=lang;document.documentElement.lang=lang;document.getElementById('btnEs').classList.toggle('active',lang==='es');document.getElementById('btnEn').classList.toggle('active',lang==='en');buildPages();currentPage=0;renderPage();}
+function nextPage(){if(currentPage<pages.length-1){currentPage++;renderPage();}}
+function prevPage(){if(currentPage>0){currentPage--;renderPage();}}
+function goChapter(ci){const idx=pages.findIndex(p=>p.chapterIndex==ci); if(idx>=0){currentPage=idx;renderPage();}}
+buildPages();renderPage(false);
+</script>
 </body>
 </html>
